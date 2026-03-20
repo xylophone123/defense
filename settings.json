@@ -1,0 +1,19 @@
+{
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop",
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "bounded",        // wrap to min(view width, wordWrapColumn)
+        "editor.wordWrapColumn": 130,         // your preferred guide (try 80/100)
+        "editor.wrappingIndent": "same",     // keep wrapped lines aligned
+        "editor.rulers": [130]                // faint vertical guide (optional)
+
+    },
+    "latex-workshop.formatting.latex": "latexindent",
+    "latex-workshop.latexindent.args": [
+        "-l=%WORKSPACE_FOLDER%/indentconfig.yaml", // <- explicitly load your repo config
+        "%TMPFILE%",
+        "-m",
+        "-g=3"
+    ],
+    "latex-workshop.view.pdf.viewer": "tab"
+}
