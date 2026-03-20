@@ -1,0 +1,78 @@
+# Build output
+*.pdf
+*.dvi
+*.ps
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+
+# Bibliography
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# Index files
+*.idx
+*.ilg
+*.ind
+
+# Glossaries
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+*.alg
+
+# Listings
+*.lol
+
+# Nomenclature
+*.nlo
+*.nls
+
+# TikZ / pgfplots
+*.nav
+*.snm
+
+# latexmk
+latexmkrc
+
+# arara
+*.arara.log
+
+# minted (code highlighting)
+_minted*
+*.pyg
+
+# temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Output directories (if you use one)
+build/
+out/
+dist/
+
+*.vrb
