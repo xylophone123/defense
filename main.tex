@@ -87,7 +87,7 @@
 
 
 \begin{frame}{Prefactorization Algebra Examples}
-    For some associative algebra $A$ and $M \in A-\mbox{mod}$ we can define a factorization algebra $\mathcal{F}$ on $\R_{\geq 0}$. For open intervals $U,V,W \subseteq \R_{\geq 0}$ with $0\in U, W$
+    For some associative algebra $A$ and $M \in A-\mbox{mod}$ we can define a prefactorization algebra $\mathcal{F}$ on $\R_{\geq 0}$. For open intervals $U,V,W \subseteq \R_{\geq 0}$ with $0\in U, W$
     \[ \mathcal{F}(U) = M \quad \mathcal{F}(V) = A\quad \mathcal{F}(W) =M\]
     and the factorization product is given by the following map
 
@@ -122,7 +122,7 @@
             \node[above] at (4.2,1.5) {$a\otimes b \in A\otimes A$};
             \node[above] at (5,2.5) {$V$};
             \draw[->,thick] (3.5,1.5) -- (3.5,.5);
-            \node[below] at (4.2,.5) {$a\cdot b \in \mathcal{F}(W)$};
+            \node[below] at (4.2,.5) {$a\cdot b \in A$};
             \draw[thick](0,0) -- (7,0);
             \node[above] at (1,0) {$W$};
         \end{tikzpicture}
@@ -157,7 +157,7 @@
         \begin{itemize}
             \item The vacuum axiom $Y(\vac,z) = \mbox{Id}_V$ and for any $A\in V$
                   \[
-                      Y(A,z)\vac \in V[[z]].
+                      Y(A,z)\vac \in V[[z]], \quad Y(A,z)\vac|_{z=0}=A.
                   \]
             \item The translation axiom, for any $A\in V$,
                   \[
@@ -168,7 +168,8 @@
                   \[
                       [Y(A,z),Y(B,w)](z-w)^N =0
                   \]
-            \item A Vertex algebra is $\Z$ graded if $V$ is $\Z$ graded, $\vac$ is degree 0, $T$ has degree 1, and for $A\in V_m$ and $Y(A,z) = \sum_{\Z} A_{n} z^{-n-1}$ $A_n$ has degree $-n+m-1$
+            \item Vertex algebras can be $\Z$-graded
+            % \item A vertex algebra is $\Z$ graded if $V$ is $\Z$ graded, $\vac$ is degree 0, $T$ has degree 1, and for $A\in V_m$ and $Y(A,z) = \sum_{\Z} A_{n} z^{-n-1}$ $A_n$ has degree $-n+m-1$
         \end{itemize}
     \end{block}
 \end{frame}
@@ -189,12 +190,12 @@
 \end{frame}
 
 \begin{frame}{Vacuum Module}
-    $\mathfrak{g}[[t]] \oplus \C K$ is a Lie subalgebra of $\hat{\mathfrak{g}}$. For $k\in \C$ we can define $\C_k$ as the representation where $\mathfrak{g}[[t]]$ acts by 0 and $K$ acts by $k$. The \textbf{vacuum module} is the induced $\hat{\mathfrak{g}}$-module
+    $\mathfrak{g}_{+}:=\mathfrak{g}[[t]] \oplus \C K$ is a Lie subalgebra of $\hat{\mathfrak{g}}$. For $k\in \C$ we can define $\C_k$ as the representation where $\mathfrak{g}[[t]]$ acts by 0 and $K$ acts by $k$. The \textbf{vacuum module} is the induced $\hat{\mathfrak{g}}$-module of $\C_k$
 
     \[
-        V_{k}(\mathfrak{g}) = \mbox{Ind}_{\mathfrak{g}[[t]]\oplus \C K}^{\hat{\mathfrak{g}}} \C_k = U(\hat{\mathfrak{g}})\otimes_A \C_k
+        V_{k}(\mathfrak{g}) = \mbox{Ind}_{\mathfrak{g}[[t]]\oplus \C K}^{\hat{\mathfrak{g}}} \C_k = U(\hat{\mathfrak{g}})\otimes_{U(\mathfrak{g}_{+})}\C_k.
     \]
-    where $A= U(\mathfrak{g}[[t]]\oplus \C K)$. As a vector space $V_k(\mathfrak{g})\cong U(t^{-1}\mathfrak{g}[t^{-1}])$. For $\{J^a\}$ a basis of $\mathfrak{g}$ and defining
+    As a vector space $V_k(\mathfrak{g})\cong U(t^{-1}\mathfrak{g}[t^{-1}])$. For $(J^a)_{a=1}^n$ a basis of $\mathfrak{g}$ and defining
     \[
         J^a_n:= J^a \otimes t^n
     \]
@@ -228,9 +229,59 @@
 
 
 
+
+\begin{frame}{Kac-Moody Factorization Algebra}
+
+    \begin{block}{Theorem (CG)}
+        $U(1)$-invariant holomorphic prefactorization algebras on $\C$ with additional assumptions produce vertex algebras.
+    \end{block}
+
+
+    Define the precosheaf of dg-Lie algebras
+    \[
+        \mathcal{G}:= \Omega^{0,*}_c \otimes \mathfrak{g}.
+    \]
+    For $h$ a symmetric bilinear form on $\mathfrak{g}$ define the central extension
+    \[
+        0 \to \C k \to \hat{\mathcal{G}} \to \mathcal{G} \to 0
+    \]
+    defined on $U$ by
+    \[
+        [\alpha \otimes X,\beta\otimes Y] = \alpha \wedge \beta \otimes [X,Y] - h(X,Y) \int_{U} \alpha \partial \beta  k
+    \]
+
+\end{frame}
+
+\begin{frame}{Kac-Moody Factorization Algebra}
+
+        The Kac-Moody factorization algebra is
+    \[
+        \mathcal{F}_{\mathfrak{g}} = \operatorname{Sym}(\hat{\mathcal{G}}[1],\bar{\partial}+d_{CE}).
+    \]
+
+    The Kac-Moody factorization algebra produces the Kac-Moody vertex algebra.
+    \[
+        V = \oplus_{k\in \Z}H^{*}(\mathcal{F}_{\mathfrak{g},k}(D)).
+    \]
+    The vertex operator comes from Laurent expanding the following structure map
+    \begin{center}
+\begin{tikzpicture}
+    \draw (0,0) circle (.5);
+    \fill (0,0) circle (1.5pt) node[below left] {$0$};
+
+
+    \coordinate (Z) at (2.5,0.5);
+    \draw (Z) circle (.5);
+    \fill (Z) circle (1.5pt) node[above right] {$z$};
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+
 \begin{frame}{Vertex-Algebra Modules}
     \begin{block}{Definition}
-        A module for a vertex algebra $(V,\vac,T,Y)$ is a vector space $M$ With $Y_M:V \to \mbox{End}(M) [[z^{-1},z]]$
+        A module for a vertex algebra $(V,\vac,T,Y)$ is a vector space $M$ with $Y_M:V \to \mbox{End}(M) [[z^{-1},z]]$
         \[
             Y_M(A,z) =\sum_{n \in \Z} A^M_{(n)} z^{-n-1}
         \]
@@ -252,38 +303,6 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{Kac-Moody Factorization Algebra}
-    The following is an example of a factorization envelope
-    \[
-        \mathcal{G}:= \Omega^{0,*}_c \otimes \mathfrak{g}
-    \]
-    For $h$ a symmetric bilinear form on $\mathfrak{g}$ define the central extension on $U$ as
-    \[
-        0 \to \C k \to \hat{\mathcal{G}} \to \mathcal{G} \to 0
-    \]
-    defined on $U$
-    \[
-        [\alpha \otimes X,\beta\otimes Y] = \alpha \wedge \beta \otimes [X,Y] - \int_{U} \alpha \partial \beta h(X,Y)
-    \]
-    The Kac-Moody factorization algebra is
-    \[
-        \mathcal{F}_{\mathfrak{g}} = \operatorname{Sym}(\hat{\mathcal{G}}[1],\bar{\partial}+d_{CE}).
-    \]
-\end{frame}
-
-\begin{frame}{Kac-Moody Factorization Algebra}
-
-    \begin{block}{Theorem}
-        $U(1)$-invariant holomorphic prefactorization algebras with additional conditions produce vertex algebras on $\C$.
-    \end{block}
-    The Kac-Moody factorization algebra produces the Kac-Moody vertex algebra.
-    \[
-        V = \oplus_{k\in \Z}H^{*}(\mathcal{F}_{\mathfrak{g},k}(D)).
-    \]
-    The vertex operator comes from Laurent expanding the following diagram
-\end{frame}
-
-
 
 \begin{frame}{Weyl Modules}
     For $M \in \mathfrak{g}$-mod we can define the Weyl module $W(M)$ for $\hat{\mathfrak{g}}$ as
@@ -294,7 +313,7 @@
     \[
         W(M) \cong U(t^{-1} \mathfrak{g}[t^{-1}])\otimes M
     \]
-    $W(M)$ is a module for the Kac-Moody Vertex Algebra.
+    $W(M)$ is a module for the Kac-Moody vertex algebra.
 \end{frame}
 
 
@@ -304,9 +323,9 @@
 \begin{frame}{Conformal Vertex Algebra}
     A module $M$ for a vertex algebra $V$ is conformal if there is a conformal vector $\omega\in V_2$ with
     \[
-        Y_M(\omega,z) = \sum_{n\in \Z} L_n^m z^{-n-2}
+        Y_M(\omega,z) = \sum_{n\in \Z} L_n^M z^{-n-2}
     \]
-    Fourier coefficients which satisfy the Virasoro reltations
+    whose Fourier coefficients which satisfy the Virasoro reltations
     \[
         [L^M_n, L^M_m]= (n-m) L^M_{n+m} + \frac{n^3-n}{12} \delta_{n,-m} c.
     \]
@@ -318,7 +337,7 @@
 \end{frame}
 
 \begin{frame}{Attaching to Complex Curve}
-    For a Riemann surface $X$ FBZ construct the following sheaf
+    For a Riemann surface $X$ and $M$ a conformal $V$-module, FBZ construct the following sheaf
     \[
         \mathcal{M}:= \hat{X}\times_{\mathrm{Aut}\mathcal{O}} M
     \]
@@ -330,14 +349,36 @@
     \]
 \end{frame}
 
+\begin{frame}{Conformal Blocks}
+    For a curve $X$ and a vertex algebra $V$ and modules $(M_i)_{i=1}^n$ we denote the space of conformal blocks at $(x_i)_{i=1}^n$
+    \[
+        C_V(X,(x_i),M_i)_{i=1}^n.
+    \]
+    It is defined as all functionals $\varphi$ on $\otimes_{i=1}^n \mathcal{M}_{i,x_{i}}$ such that for any $i$ and $A_i \in \mathcal{M}_{i,x_i}$
+    \[
+        \langle \varphi, A_1 \otimes \dotsb \otimes (\mathcal{Y}_{M,x_i} \cdot A_i)\otimes \dotsb \otimes A_n\rangle \in \Gamma(D^{\times}_{x_i} , \mathcal{V}^*)
+    \]
+    can be extended to the same regular section of $\mathcal{V}^*$ over $X\setminus \{x_1,\dots,x_n\}$.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{Screenshot 2024-08-21 at 11.44.52 AM.png}
+        %\caption{This is the caption of the image.}
+        \label{fig:example_image}
+    \end{figure}
+\end{frame}
+
+% \begin{frame}{Chiral Correlation Functions}
+% There is a natural flat connection on the bundles $\mathcal{M}$ and so a flat connection on $\mathcal{M}_1 \boxtimes \cdots \boxtimes \mathcal{M}_n \to X^n$. A conformal block can be parallel transported to a section on $X^n \setminus \Delta$ with the flat connection which is a \textbf{chiral correlation function}. 
+% \end{frame}
+
 
 
 \begin{frame}{Derived Weyl Modules}
-    In dimension 1 we can define a module for the Kac-Moody factorization algebra at $x \in \Sigma$. For $M\in \frak{g}\mbox{-mod}$ we define
+    In dimension 1 we can define a module for the Kac-Moody factorization algebra at $x \in \Sigma$. For $M\in \mathfrak{g}\mbox{-mod}$ we define
     \[
         \mathcal{M} =\Omega^{0,*}\otimes \mathcal{E}^\bullet \otimes M
     \]
-    where $\mathcal{E}^\bullet$ is a resolution of the point sheaf at $x$. $\mathcal{M}$ is a dg-mod for $\mathfrak{g}^\Sigma $ in the obvious way. Then we can define the following precosheaf of dg-Lie Algebras
+    where $\mathcal{E}^\bullet$ is a resolution of the skyscraper sheaf at $x$. $\mathcal{M}$ is a dg-mod for $\mathfrak{g}^\Sigma $ in the obvious way. Then we can define the following precosheaf of dg-Lie Algebras
     \[
         \mathfrak{g}^\Sigma   \ltimes \mathcal{M}
     \]
@@ -367,28 +408,12 @@
 \end{frame}
 
 
-\begin{frame}{Conformal Blocks}
-    For a curve $X$ and a vertex algebra $V$ and modules $M_i$ we denote the space of conformal blocks at $(x_i)$
-    \[
-        C_V(X,(x_i),M_i))_{i=1}^n.
-    \]
-    It is defined as all functionals $\varphi$ on $\otimes_{i=1}^n \mathcal{M}_{i,x_{i}}$ such that for any $i$ and $A_i \in \mathcal{M}_{i,x_i}$
-    \[
-        \langle \varphi, A_1 \otimes \dotsb \otimes (\mathcal{Y}_{M,x_i} \cdot A_i)\otimes \dotsb \otimes A_n\rangle \in \Gamma(D^{\times}_{x_i} , \mathcal{V}^*)
-    \]
-    can be extended to the same regular section of $\mathcal{V}^*$ over $X\setminus \{x_1,\dots,x_n\}$.
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.6\textwidth]{Screenshot 2024-08-21 at 11.44.52 AM.png}
-        %\caption{This is the caption of the image.}
-        \label{fig:example_image}
-    \end{figure}
-\end{frame}
+
 
 
 \begin{frame}{Conformal Blocks}
     We have an action of $\mathfrak{g}_{out} :=\mathfrak{g}[X\setminus \{x\}]$ on $V_k (\mathfrak{g})$ by taking residues. FBZ show that the space of conformal blocks can be identified as $\mathfrak{g}[X\setminus x]$ invariant functionals on $V_k (\mathfrak{g})$.
-    \begin{block}{theorem}
+    \begin{block}{Theorem}
 
 
         $$ H_0 ( \mathfrak{g} \otimes R\Gamma(X, \mathcal{O}_X), \C) \simeq \operatorname{V}_{\mathfrak{g},k} / \mathfrak{g}[X \backslash x] \cdot \operatorname{V}_{\mathfrak{g},k} $$
@@ -399,7 +424,7 @@
 
 
 \begin{frame}{Raviolo Vertex Algebra}
-    A raviolo vertex algebra is an  algebra with multiplication paramterized by the formal raviolo
+    Raviolo vertex algebras were introduced by (GW). They are vertex algebras with multiplication parameterized by the formal raviolo
     \[
         \mathbb{R}\mathrm{av} = \mathbb{D} \cup_{\mathbb{D}^\times} \mathbb{D}.
     \]
@@ -407,18 +432,40 @@
     \[
         \mathcal{K}_{dist}:= \C[[z]] \oplus (\prod_{n\geq 0 } \C \Omega_z^{n}).
     \]
-    formal raviolo Laurent series
+    formal raviolo Laurent series are
     \[
         \mathcal{K} := \C[[z]] \oplus (\oplus_{n\geq 0 } \C \Omega_z^n).
     \]
-    A raviolo field on $V$ is an element $A(z) \in \mathrm{End}(V)\otimes \mathcal{K}_{dist}$ such that for any $B\in V$
-    \[
-        A(z)B \in V \otimes \mathcal{K}
+    A residue can be defined with the only non trivial pairing
+    \[ 
+    \mbox{Res}_z dz z^n \Omega^{m}_z = \delta_{n,m} .
     \]
+
+
 \end{frame}
 
 \begin{frame}{Raviolo Vertex Algebra}
-    \begin{block}{Definition}
+    There is an action on of $\partial_z$ on $\mathcal{K}$ and $\mathcal{K}_{dist}$ defined as 
+    \[
+    \partial_z z^n = n z^{n-1}, \quad \partial_z \Omega_z^n =(n+1)\omega_z^{n+1}
+    \]
+    A raviolo field on $V$ is an element $A(z) \in \mathrm{End}(V)\otimes \mathcal{K}_{dist}$ such that for any $B\in V$
+    \[
+        A(z)B \in V \otimes \mathcal{K}.
+    \]
+    Two fields $A(z),B(w)$ are mutually local if 
+    \[
+    [A(z),B(w)]= \sum_{i=0}^N \Delta^{(i)}(z-w)c_i(w)
+    \]
+    where 
+    \[
+    \Delta^{(i)}(z-w) = \frac{1}{i!} \partial_z^i \left(\sum_{n\geq 0 } w^n \Omega^n_z - \sum_{n<0} z^{-n-1} \Omega_w^{-n-1}  \right)
+    \]
+    
+\end{frame}
+
+\begin{frame}{Raviolo Vertex Algebra}
+    \begin{block}{Definition (GW)}
         A Raviolo Vertex Algebra is the data $(V, |0\rangle , \partial, Y) $ where
 
         \begin{itemize}
@@ -449,29 +496,29 @@
 \end{frame}
 
 \begin{frame}{Raviolo Current Vertex Algebra}
-    We can define the following Lie algebra $\mathfrak{g}\langle \langle u \rangle \rangle:= \mathfrak{g} \otimes \mathcal{K}$ with 1-shifted central extension
+    Define the 1-shifted central extension of $\mathfrak{g}\langle \langle z \rangle \rangle:= \mathfrak{g} \otimes \mathcal{K}$ where $h(-,-)$ is a symmetric, $\mathfrak{g}$-invariant, bilinear form on $\mathfrak{g}$
     \[
-        0 \to \C \kappa[-1] \to \hat{\mathfrak{g}}_{h} \to \mathfrak{g}\langle \langle u \rangle \rangle \to 0,
+        0 \to \C \kappa[-1] \to \hat{\mathfrak{g}}_{h} \to \mathfrak{g}\langle \langle z \rangle \rangle \to 0,
     \]
     \[
-        [A \otimes \alpha, B \otimes \beta] := [A,B] \otimes \alpha \beta - \kappa h(A,B) \mbox{Res}_u du \alpha \partial_u \beta
+        [A \otimes \alpha, B \otimes \beta] := [A,B] \otimes \alpha \beta - \kappa h(A,B) \mbox{Res}_z dz \alpha \partial_z \beta.
     \]
-    with residues defined as $\mbox{Res}_u dz u^n \Omega^{m}_z = \delta_{n,m}$.
-    Let $\C_{\kappa} = \mbox{Sym}(\C\kappa[-1])$ be the representation of the Lie subalgebra $\C \kappa[-1] \oplus \mathfrak{g}[[u]]\subseteq \mathfrak{g}_h$ where $\kappa$ acts by multiplication by $\kappa$ and $\mathfrak{g}[[u]]$ .
+    
+    Let $\C_{\kappa} = \mbox{Sym}(\C\kappa[-1])$ be the representation of the Lie subalgebra $\hat{\mathfrak{g}}_{\geq 0} =  \C \kappa[-1] \oplus \mathfrak{g}[[u]]\subseteq \mathfrak{g}_h$ where $\kappa$ acts by multiplication by $\kappa$ and $\mathfrak{g}[[z]]$ acts by 0 .
     The induced $U(\hat{\mathfrak{g}}_h)$ module is a raviolo vertex algebra
     \[
         V[\mathfrak{g},h] : = U(\hat{\mathfrak{g}}_h) \otimes _{U(\hat{\mathfrak{g}}_{\geq 0})} \C_{\kappa}.
     \]
-    The generating vertex operators are
+    For $\mu_{a,n}:= T_a \otimes \Omega^n_z$ and $J_{a,n}=T_a \otimes z^n$, for $(T_i)_{i=1}^n$ a basis of $\mathfrak{g}$, the generating vertex operators are
     \[
-        Y(\mu_{a,0}|0\rangle,z) = \sum_{n\geq 0 }z^n \mu_{a,n} + \Omega^n_{z} J_{a,n}
+        Y(\mu_{a,0}|0\rangle,z) = \sum_{n\geq 0 }z^n \mu_{a,n} + \Omega^n_{z} J_{a,n}.
     \]
-    for $\mu_{a,n}:= T_a \otimes \Omega^n_z$ and $J_{a,n}=T_a \otimes z^n$, for $(T_i)_{i=1}^n$ a basis of $\mathfrak{g}$
+    
 \end{frame}
 
-\begin{frame}[fragile]{Translation Invariance}
+\begin{frame}[fragile]{$G$-invariant prefactorization algebras}
     \begin{block}{Definition}
-        For a manifold $M$ with a $G$ action, a prefactorization algebra, $\mathcal{F}$, is $G$-equivariant if for each $g \in G$ and each open $U\subseteq M$ we have isomorphisms
+        A prefactorization algebra, $\mathcal{F}$, on a manifold with $G$ action, $M$, is $G$-equivariant if for each $g \in G$ and each open $U\subseteq M$ we have isomorphisms
         \[
             \sigma_g: \mathcal{F}(U) \to \mathcal{F}(g \cdot U)
         \]
@@ -494,31 +541,57 @@
 \end{frame}
 
 \begin{frame}{Operad}
-    The operad $B^3$ has operations given by configurations of balls. It is colored by the radius of the balls. Denote
+    The operad $B^3$ whose morphisms are given by configurations of balls. It is colored by the radius of the balls. Denote
     \[
         B_3(r_1,\dots,r_k|s)
     \]
     as the configurations of balls of radius $r_i$ all disjoint and contained in $B^3_s(0)$. Composition is given by removing the intermediate ball.
-    Translation invariant prefactorization algebras are algebras over this operad. Let $\mathcal{F}_r := \mathcal{F}(B^3_r(0))$. For each $p\in B_3(r_1,\dots,r_k|s)$ we have a map
-    \[
-        m[p]:\mathcal{F}_{r_1}\times \dots \times \mathcal{F}_{r_k} \to \mathcal{F}_s
-    \]
-    If this is smooth, it is smoothly translation invariant.
+\begin{center}
+\begin{tikzpicture}
+    % First circle
+    \draw (0,1) circle (0.5);
+    \fill (0,1) circle (1.5pt);
+    \draw (0,1) -- (0.5,1) node[midway, below] {$r_1$};
+
+    % Second circle
+    \coordinate (Z) at (2.5,0.5);
+    \draw (Z) circle (0.5);
+    \fill (Z) circle (1.5pt);
+    \draw (Z) -- ++(0.5,0) node[midway, below] {$r_k$};
+
+    % Curved ellipsis made of three dots
+    \fill (0.9,0.9) circle (0.8pt);
+    \fill (1.25,0.82) circle (0.8pt);
+    \fill (1.65,0.76) circle (0.8pt);
+
+    % Big circle
+    \draw (0,0) circle (3.5);
+    \fill (0,0) circle (1.5pt);
+    \draw (0,0) -- (3.5,0) node[midway, below] {$s$};
+\end{tikzpicture}
+\end{center}
 \end{frame}
 
 
 \begin{frame}{Cooperad}
-    We can define a cooperad $C^\infty(B^3)$ which is defined by taking smooth functions on the operations on $B^3$ and using pull back $\circ_i^*$ of the composition map. A smoothly translation-invariant prefactorization algebra defines an algebra over this colored cooperad as we have a map
+    Translation-invariant prefactorization algebras on $\R^3$ are algebras over this operad. Let $\mathcal{F}_r := \mathcal{F}(B^3_r(0))$. For each $p\in B_3(r_1,\dots,r_k|s)$ we have a multilinear map
     \[
-        \mu(r_1,\dots,r_k|s) \in C^\infty(B^3(r_1,\dots,r_k|s),\mathrm{Hom}(\mathcal{F}_{r_1},\dots ,\mathcal{F}_{r_k}|\mathcal{F}_s))
+        m[p]:\mathcal{F}_{r_1}\times \dots \times \mathcal{F}_{r_k} \to \mathcal{F}_s
+    \]
+    If this is smooth, it is smoothly translation-invariant.
+
+    We can define the cooperad of smooth functions on $B^3$, $C^\infty(B^3)$, with pull back of the composition map. 
+    
+    
+    A smoothly translation-invariant prefactorization algebra defines an algebra over this colored cooperad as we have maps
+    \[
+        \mu(r_1,\dots,r_k|s) \in C^\infty(B^3(r_1,\dots,r_k|s),\mathrm{Hom}(\mathcal{F}_{r_1},\dots ,\mathcal{F}_{r_k}|\mathcal{F}_s)).
     \]
 \end{frame}
 
 \begin{frame}{Topological-Holomorphic (TH) Prefactorization Algebras}
-    \begin{block}{Topological-Holomorphic Translation Invariant Prefactorization Algebra on $\C^n$}
-        \begin{itemize}
-            \item A prefactorization algebra on $\C\times \R$ where the natural action of the real Lie algebra $\mathbb{R} \times \C$ extends to the complexified Lie algebra $\R^{2n}\otimes \C$.
-            \item Derivations $\eta,\xi$ of cohomological degree $-1$ such that
+    \begin{block}{Topological-Holomorphic Translation-Invariant Prefactorization Algebra on $\C \times \R$}
+         A translation-invariant prefactorization algebra on $\C \times \R$ is topological-holomoprhic translation-invariant if it has derivations $\eta,\xi$ of cohomological degree $-1$ such that
                   \[
                       d\eta= \frac{\partial}{\partial \bar{z}}  \qquad d\xi = \frac{\partial}{\partial t}
                   \]
@@ -528,25 +601,48 @@
                   \[
                       [\eta,\frac{\partial}{\partial \bar{z}}] = 0 \qquad [\xi,\frac{\partial}{\partial t}]=0
                   \]
-        \end{itemize}
         where $d$ is the natural differential on the dg-Lie algebra $\mbox{Der}(\mathcal{F})$.
     \end{block}
 \end{frame}
 
 \begin{frame}{Dolbeaut-de Rham Cohomology}
-    The Dolbeaut-de Rham complex on $\C \times \R$ is denoted $\mathcal{A}^{0;*}(\C\times \R)$. $\mathcal{A}^{0;n}(\C\times \R)$ is the subspace of $n$-forms generated by $dt$ and $d\bar{z}$. The differential is $d'=\bar{\partial}+d_{dR}$.
+    \begin{itemize}
 
-    We can define a cooperad $\mathcal{A}^{0;*}$ by taking Dolbeaut-de Rham forms on $B^3$
+        \item The Dolbeaut-de Rham complex on $\C^n \times \R^m$ is denoted $\mathcal{A}^{0;*}(\C^n\times \R^m)$.
+        \item $\mathcal{A}^{0;n}(\C^n\times \R^m)$ is the subspace of $n$-forms generated by $dt_i$ and $d\bar{z}_j$.
+        \item The differential is $d'=\bar{\partial}+d_{dR}$.
+        \item  $B^3$ has morphisms which are subspaces of $(\R \times \C)^n$ so we can form the cooperad of Dolbeaut-de Rham forms on $B^3$ denoted $\mathcal{A}^{0;*}(B^3)$.
+    \end{itemize}
+
+
+
+    
 \end{frame}
 
 
 \begin{frame}{Descent}
     \begin{block}{Theorem}
-        Let $\mathcal{F}$ be a topological-holomorphic translation invariant prefactorization algebra on $\C\times \R$. Then $\mathcal{F}$  defines an algebra over the cooperad $\mathcal{A}^{0;*}(B^{3})$ valued in differentiable cochain complexes. This means that $m[p]$ lifts to a map
+        Let $\mathcal{F}$ be a topological-holomorphic translation-invariant prefactorization algebra on $\C\times \R$. Then $\mathcal{F}$  defines an algebra over the cooperad $\mathcal{A}^{0;*}(B^{3})$ valued in differentiable cochain complexes. This means that 
+        \begin{itemize}
+        
+        \item $m[p]$ lifts to a map
         \[
             \mu^{d'}(r_1,\dots,r_k|s):\mathcal{F}_{r_1} \times \dotsb \times \mathcal{F}_{r_k} \to \mathcal{A}^{0;*}(B_3(r_1,\dots,r_k|s), \mathcal{F}_s )
         \]
-        compatible with the differentials. These maps also satisfy the following properties which make it an algebra over the cooperad $\mathcal{A}^{0;*}(B^3)$.
+        compatible with the differentials. 
+        \item For all $1\leq i \leq m$
+              \[
+\begin{aligned}
+\circ_i^* \mu^{d'}(t_1,\dotsc,t_{i-1},r_1,\dotsc,r_k,t_{i+1},\dotsc,r_m \mid s)
+&= \\
+\quad \mu^{d'}(t_1,\dotsc,t_m \mid s)\circ_i  \mu^{d'}(r_1, &\dotsc,r_k \mid t_i).
+\end{aligned}
+\]
+              where $\circ_i^*$ is the pullback and $\circ_i$ is composition.
+        \item $\mu^{d'}(r_1,\dots,r_k|s)$ are $S_n$-invariant
+        \end{itemize}
+
+        
     \end{block}
 
 \end{frame}
@@ -555,7 +651,7 @@
 
 \begin{frame}{TH Pre-FA to Raviolo Vertex Algebra}
     \begin{block}{Theorem}
-        Let $\mathcal{F}$ be a unital $U(1)$-equivariant topological-holomorphic translation invariant prefactorization algebra on
+        Let $\mathcal{F}$ be a unital $U(1)$-equivariant topological-holomorphic translation-invariant prefactorization algebra on
         $\C\times \R$ valued in differentiable vector spaces. Let $\mathcal{F}_k(B^3_r(0))$ be the weight $k$ eigenspace of the $U(1)$
         action on $\mathcal{F}(B^3_r(0))$. Assume the following
         % Assume that for each $B^3_r(0)$ the action of $U(1)$ on$\mathcal{F}(B^3_r(0))$ is tame.
@@ -573,26 +669,32 @@
     \end{block}
 \end{frame}
 
+\begin{frame}
+\begin{block}{Theorem continued}
+Let $V=\oplus_{k\in \Z} H^*(\mathcal{F}_k(B^3_r(0)))$. $V$ has the structure of a raviolo vertex algebra.
+\end{block}
+\end{frame}
+
 \begin{frame}{Cohomological Laurent Expansion}
     \[
-        H^{0;*}(\C\times \R \setminus\{\ubar{w}\}) = \begin{cases}
-            \mathcal{O}_{hol}(\C)                        & *=0 \\
+        H^{0;*}(\C\times \R \setminus\{ 0 \}) = \begin{cases}
+            \mathcal{O}_{hol}(\C)                  & *=0 \\
             \overline{\C[\partial_z] \omega(\ubar{z};0)} & *=1
         \end{cases}
     \]
-    Denote $\Omega_z^n :=\frac{1}{n!}\partial_z^n \omega(\ubar{z},0)$ which is an analog of $z^{-n}$,
+    Denote $\Omega_z^n :=\frac{1}{n!}\partial_z^n \omega(\ubar{z},0)$ which is an analog of $z^{-n-1}$,
     \[
         \int_{S^2(0)}z^n dz \Omega^m_z = \delta_{n,m}.
     \]
-    Define the cohomological Laurent expansion
+    For $\alpha \in H^{0;*}(\C\times \R \setminus\{0\})$, define the cohomological Laurent expansion as
     \[
-        \mathcal{L}' \alpha=\int_{S^2(0)}\sum_{i\geq 0} \Omega^i_z \tau^i \alpha+ \sum_{j\geq 0 } \lambda^j z^{j} dz \alpha
+        \mathcal{L}' \alpha=\int_{S^2(0)}\sum_{i\geq 0} dz \Omega^i_z \tau^i \alpha+ \sum_{j\geq 0 } \lambda^j z^{j} dz \alpha
     \]
-    Then identify $\tau^i$ with $z^i$ and $\lambda^i$ with $\Omega^i_z$.
+    Then identify $\tau^i$ with $z^i$ and $\lambda^i$ with $\Omega^i_z$ so $\mathcal{L}' \alpha \in \mathcal{K}_{dist}$
 \end{frame}
 
-\begin{frame}{TH Pre-FA to Vertex Algebra}
-    For $V= \oplus_{k \in \Z}  H^*(\mathcal{F}(B^3_r))$ we have an element
+\begin{frame}{TH Pre-FA to Raviolo Vertex Algebra}
+    For $V= \oplus_{k \in \Z}  H^*(\mathcal{F}_k(B^3_r))$ we have an element
     \[
         m_{z,0}(-,-)\in H^{0;*}((\C \times \R)\setminus \{0\}, \mathrm{Hom}(V\otimes V,V)).
     \]
@@ -600,15 +702,41 @@
     \[
         \mathcal{L}' m_{z,0}(A,B) \in V\langle \langle z \rangle \rangle
     \]
-    \textcolor{red}{add diagram}
+    \begin{center}
+     \begin{tikzpicture}[every node/.style={font=\small}]
+
+        % ==================================================
+        % Left figure (big sphere + smaller sphere inside)
+        % ==================================================
+        \begin{scope}[xshift=0cm]  % Move this group to the left
+            % -- Big sphere
+            \shade[ball color=gray!30, opacity=0.4] (0,0) circle (1.2);
+            %    Equator of the big sphere (flatten y by factor 0.3):
+            %    top half: dashed
+            \draw[dashed, opacity=0.3]
+            plot[domain=0:180] ({1.2*cos(\x)},{0.3*1.2*sin(\x)});
+            %    bottom half: solid
+            \draw[opacity=0.3]
+            plot[domain=180:360] ({1.2*cos(\x)},{0.3*1.2*sin(\x)});
+
+
+            % -- Black points & labels
+            \fill[black] (0.83,0.83) circle (2pt)
+            node[above] {$\ubar{z}$};
+            \fill[black] (0,0) circle (2pt)
+            node[above] {$0$};
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
 \end{frame}
 
 \begin{frame}{Locality}
+    
     The composition of vertex operators is given by
     \[
         \mathcal{L}'_z \mathcal{L}'_w m_{z,w,0}(a,b,c)= Y(a,z)Y(b,w)c
     \]
-    where we integrate $z$ over a larger sphere than $w$. Then the following cycle relation
+    where we integrate $z$ over a larger sphere than $w$. Then from the following cycle relation
     \begin{tikzpicture}[every node/.style={font=\small}]
 
         % ==================================================
@@ -641,7 +769,8 @@
 
 
         \end{scope}
-
+        \node at (2.0,0) {\Large $=$};
+        \node at (6.0,0) {\Large $+$};
         % ==================================================
         % Middle figure (another big sphere + smaller sphere)
         % ==================================================
@@ -700,13 +829,16 @@
         \end{scope}
 
     \end{tikzpicture}
-    The commutator is given by the integral over the third cycle.
+   
+   
+    we see that the commutator is given by the integral over the third cycle.
 \end{frame}
 
 \begin{frame}{Locality}
+    Since we are integrating an algebra over the cooperad $\mathcal{A}^{0;*}(B^3)$, when $|z-w|<|w|,|z|$ we can integrate $m_{w,0}(m_{z,w}(a,b),c)$ instead of $m_{z,w,0}(a,b,c)$.
     It can be shown that
     \[
-        m_{\ubar{w},0}(m_{\ubar{w},\ubar{z}}(b,a),c) = c(z,w) + \sum_{i=0}^N \Omega_{z-w}^i C_i(w).
+        m_{\ubar{w},0}(m_{\ubar{w},\ubar{z}}(b,a),c) = c(z,w) + \sum_{i=0}^N \Omega_{z-w}^i C_i(w), \quad C_i(w) \in V\langle \langle w \rangle \rangle
     \]
     Then by direct computation one can check that
     \[
@@ -720,20 +852,20 @@
 \end{frame}
 
 \begin{frame}{Raviolo Current Factorization Algebra}
-    For $\mathfrak{g}$ a Lie algebra, $M$ a manfiold with THF and $\kappa: \mathfrak{g}^{\otimes 2} \to \C$ a $\mathfrak{g}$ invariant symmetric pairing define the precosheaf of dg-Lie algebras
+    For $\mathfrak{g}$ a Lie algebra and $h: \mathfrak{g}^{\otimes 2} \to \C$ a $\mathfrak{g}$-invariant symmetric pairing we can define the precosheaf of dg-Lie algebras on $\C \times \R$
     \[
-        \mathcal{G}^{M} :U \to (\mathcal{A}^{0;*}_c(U)\otimes \frak{g}, d')
+        \mathcal{G} :U \to (\mathcal{A}^{0;*}_c(U)\otimes \mathfrak{g}, d').
     \]
-    Then define the 2-shifted central extension for $f(t)\otimes X, g(t)\otimes Y$ by
+    Then define the 2-shifted central extension for $\alpha \otimes X, \beta \otimes Y$ by
     \[
-        -\left( \int_U f \partial g \right) \kappa(X,Y) c
+        \alpha \wedge \beta \otimes [X,Y]-\left( \int_U \alpha \partial \beta \right) h(X,Y) \kappa
     \]
-    The raviolo current factorization algebra is the factorization envelope of $\hat{\mathcal{G}}^\Sigma :=\mathcal{G}^\Sigma \oplus c\C[-2]$, or,
+    The raviolo current factorization algebra is the factorization envelope of $\hat{\mathcal{G}} :=\mathcal{G} \oplus \kappa\C[-2]$, or,
     \[
-        \mathcal{F} := C_*(\hat{\mathfrak{g}}^\Sigma )
+        \mathcal{F} := \mathrm{Sym}(\hat{\mathfrak{g}}[1] ,d'+d_{CE}).
     \]
-    with the Chevalley-Eilenberg differential.
-    \begin{block}{Theorem (CG)}
+    
+    \begin{block}{Theorem}
         The raviolo vertex algebra defined by $\mathcal{F}$ on $\C\times \R$ is the raviolo current vertex algebra.
     \end{block}
 \end{frame}
