@@ -9,7 +9,7 @@
 \documentclass{beamer}
 \usepackage{tikz,braket,tikz-cd}
 \usepackage{mathrsfs}
-\usepackage{unicode-math}
+%\usepackage{unicode-math}
 %\usepackage[intlimits]{amsmath}
 %,cal=boondox
 \usepackage[scr=boondox]{mathalfa} 
@@ -69,7 +69,7 @@
 
 
 \begin{frame}[fragile]{Prefactorization algebras}
-    \begin{block}{Definition}
+    \begin{block}{Definition (Costello--Gwilliam)}
         For $M$ a topological space a prefactorization algebra on $M$ is an assignment $\mathcal{F}$ taking open sets $U$ of $M$ to a vector space, $\mathcal{F}(U)$ with
         \begin{itemize}
             \item A linear map $m^{U}_V :\mathcal{F}(U) \to \mathcal{F}(V)$ for $U\subseteq V$.
@@ -87,8 +87,10 @@
 
 
 \begin{frame}{Prefactorization Algebra Examples}
-    For some associative algebra $A$ and $M \in A-\mbox{mod}$ we can define a prefactorization algebra $\mathcal{F}$ on $\R_{\geq 0}$. For open intervals $U,V,W \subseteq \R_{\geq 0}$ with $0\in U, W$
-    \[ \mathcal{F}(U) = M \quad \mathcal{F}(V) = A\quad \mathcal{F}(W) =M\]
+    For some associative algebra $A$ and $M \in A-\mbox{mod}$ we can define a prefactorization algebra $\mathcal{F}$ on $\R_{\geq 0}$. For open intervals $U,V,W \subseteq \R_{\geq 0}$ with $0\in U, W$ and $U,V\subseteq W$
+    \[ 
+    \mathcal{F}(U) = M \quad \mathcal{F}(V) = A\quad \mathcal{F}(W) =M
+    \]
     and the factorization product is given by the following map
 
     \begin{center}
@@ -168,24 +170,24 @@
                   \[
                       [Y(A,z),Y(B,w)](z-w)^N =0
                   \]
-            \item Vertex algebras can be $\Z$-graded
+            %\item Vertex algebras can be $\Z$-graded
             % \item A vertex algebra is $\Z$ graded if $V$ is $\Z$ graded, $\vac$ is degree 0, $T$ has degree 1, and for $A\in V_m$ and $Y(A,z) = \sum_{\Z} A_{n} z^{-n-1}$ $A_n$ has degree $-n+m-1$
         \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}{Affine Kac-Moody Algebra}
-    For $\mathfrak{g}$ a finite dimensional simple Lie algebra over $\C$ with inner product
+    For $\mathfrak{g}$ a finite dimensional simple Lie algebra over $\C$ with canonically scaled killing form
     \[
         (\cdot, \cdot) = \frac{1}{{2h^{\vee}}}(\cdot,\cdot)_{K}
     \]
-    where $(\cdot,\cdot)_{K}$ is the Killing form and $h^{\vee}$ is the dual Coxeter number of $\mathfrak{g}$. We define $\hat{\mathfrak{g}}$ as the central extension
+    where $h^{\vee}$ is the dual Coxeter number of $\mathfrak{g}$. We define $\hat{\mathfrak{g}}$ as the central extension
     \[
         0 \to \C K \to \hat{\mathfrak{g}} \to \mathfrak{g}((t)) \to 0
     \]
-    where the central extension is defined by
+    defined by
     \[
-        [X\otimes f(t),Y \otimes g(t)]=[X,Y]\otimes f(t)g(t) -(\mbox{Res}_{t=0} f dg(X,Y) K)
+        [X\otimes f(t),Y \otimes g(t)]=[X,Y]\otimes f(t)g(t) -(\mbox{Res}_{t=0} f dg(X,Y) K).
     \]
 \end{frame}
 
@@ -243,11 +245,11 @@
     \]
     For $h$ a symmetric bilinear form on $\mathfrak{g}$ define the central extension
     \[
-        0 \to \C k \to \hat{\mathcal{G}} \to \mathcal{G} \to 0
+        0 \to \C K \to \hat{\mathcal{G}} \to \mathcal{G} \to 0
     \]
     defined on $U$ by
     \[
-        [\alpha \otimes X,\beta\otimes Y] = \alpha \wedge \beta \otimes [X,Y] - h(X,Y) \int_{U} \alpha \partial \beta  k
+        [\alpha \otimes X,\beta\otimes Y] = \alpha \wedge \beta \otimes [X,Y] - h(X,Y) \int_{U} \alpha \partial \beta  K
     \]
 
 \end{frame}
@@ -309,7 +311,7 @@
     \[
         \mbox{Ind}^{\hat{\mathfrak{g}}}_{\mathfrak{g}[[t]]\oplus \C K} M
     \]
-    where $\mathfrak{g}[t]$ acts by evaluation at 0 and $K$ acts by some scalar. As a vector space
+    where $\mathfrak{g}[[t]]$ acts by evaluation at 0 and $K$ acts by some scalar. As a vector space
     \[
         W(M) \cong U(t^{-1} \mathfrak{g}[t^{-1}])\otimes M
     \]
@@ -320,24 +322,24 @@
 
 
 
-\begin{frame}{Conformal Vertex Algebra}
-    A module $M$ for a vertex algebra $V$ is conformal if there is a conformal vector $\omega\in V_2$ with
-    \[
-        Y_M(\omega,z) = \sum_{n\in \Z} L_n^M z^{-n-2}
-    \]
-    whose Fourier coefficients which satisfy the Virasoro reltations
-    \[
-        [L^M_n, L^M_m]= (n-m) L^M_{n+m} + \frac{n^3-n}{12} \delta_{n,-m} c.
-    \]
-    The Lie subalgebra spanned by $\{L_n^M\}_{n\geq 0}$ can be identified with the Lie algebra of automorphisms of the formal disc, $\mathrm{Aut}(\mathcal{O}):=\mathrm{Aut}(\C[[t]])$ where
-    \[
-        L^M_n \rightarrow -t^{n+1} \partial_t
-    \]
+% \begin{frame}{Conformal Vertex Algebra}
+%     A module $M$ for a vertex algebra $V$ is conformal if there is a conformal vector $\omega\in V_2$ with
+%     \[
+%         Y_M(\omega,z) = \sum_{n\in \Z} L_n^M z^{-n-2}
+%     \]
+%     whose Fourier coefficients which satisfy the Virasoro reltations
+%     \[
+%         [L^M_n, L^M_m]= (n-m) L^M_{n+m} + \frac{n^3-n}{12} \delta_{n,-m} c.
+%     \]
+%     The Lie subalgebra spanned by $\{L_n^M\}_{n\geq 0}$ can be identified with the Lie algebra of automorphisms of the formal disc, $\mathrm{Aut}(\mathcal{O}):=\mathrm{Aut}(\C[[t]])$ where
+%     \[
+%         L^M_n \rightarrow -t^{n+1} \partial_t
+%     \]
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}{Attaching to Complex Curve}
-    For a Riemann surface $X$ and $M$ a conformal $V$-module, FBZ construct the following sheaf
+    A vertex algebra module is \textbf{quasi-conformal} if it has an action of $\mathrm{Der}(\mathcal{O})= \mathrm{Aut}(\C[[t]])$ which can be exponentiated to an action of $\mathrm{Aut}(\mathcal{O})$. For a Riemann surface $X$ and $M$ a quasi-conformal $V$-module, FBZ construct the following sheaf
     \[
         \mathcal{M}:= \hat{X}\times_{\mathrm{Aut}\mathcal{O}} M
     \]
@@ -352,9 +354,9 @@
 \begin{frame}{Conformal Blocks}
     For a curve $X$ and a vertex algebra $V$ and modules $(M_i)_{i=1}^n$ we denote the space of conformal blocks at $(x_i)_{i=1}^n$
     \[
-        C_V(X,(x_i),M_i)_{i=1}^n.
+        C_V(X,(x_i),(M_i))_{i=1}^n.
     \]
-    It is defined as all functionals $\varphi$ on $\otimes_{i=1}^n \mathcal{M}_{i,x_{i}}$ such that for any $i$ and $A_i \in \mathcal{M}_{i,x_i}$
+    It is defined as all functionals $\varphi$ on $\otimes_{i=1}^n \mathcal{M}_{i,x_{i}}$ such that for any $A_i \in \mathcal{M}_{i,x_i}$, all of the sections 
     \[
         \langle \varphi, A_1 \otimes \dotsb \otimes (\mathcal{Y}_{M,x_i} \cdot A_i)\otimes \dotsb \otimes A_n\rangle \in \Gamma(D^{\times}_{x_i} , \mathcal{V}^*)
     \]
@@ -374,57 +376,89 @@
 
 
 \begin{frame}{Derived Weyl Modules}
-    In dimension 1 we can define a module for the Kac-Moody factorization algebra at $x \in \Sigma$. For $M\in \mathfrak{g}\mbox{-mod}$ we define
+    For $X$ a Riemann surface and $M\in \mathfrak{g}\mbox{-mod}$ we define
     \[
         \mathcal{M} =\Omega^{0,*}\otimes \mathcal{E}^\bullet \otimes M
     \]
-    where $\mathcal{E}^\bullet$ is a resolution of the skyscraper sheaf at $x$. $\mathcal{M}$ is a dg-mod for $\mathfrak{g}^\Sigma $ in the obvious way. Then we can define the following precosheaf of dg-Lie Algebras
+    where $\mathcal{E}^\bullet$ is a resolution of the skyscraper sheaf at $x \in X$. $\mathcal{M}$ is a dg-mod for $\hat{\mathcal{G}}$. The differential forms act in the obvious way and the central extension by 0. We can define the following precosheaf of dg-Lie Algebras
     \[
-        \mathfrak{g}^\Sigma   \ltimes \mathcal{M}
+        \hat{\mathcal{G}}   \ltimes \mathcal{M}
     \]
-    Taking the factorization envelope we have a prefactorization algebra
+    Taking the factorization envelope of compactly supported sections we have a prefactorization algebra
     \[
-        \mathcal{F}_M = C_*(\mathfrak{g}^\Sigma   \ltimes \mathcal{M})
+        \mathcal{F}_M = \mathrm{Sym}((\hat{\mathcal{G}}   \ltimes \mathcal{M})_c,d_{CE}+\bar{\partial}+d_{M}).
     \]
-    which at the level of cohomology for $U$ with $x \not\in U$
+    Note at the level of cohomology for $U$ with $x \not\in U$
     \[
-        \mathcal{F}_M (U) \cong \mathcal{F}^\kappa (U)
+        \mathcal{F}_M (U) \cong \mathcal{F}_{\mathfrak{g}} (U)
     \]
 \end{frame}
 
 \begin{frame}{Derived Weyl Modules}
-    We have a grading of $\mathcal{F}_M$ by the number of products of elements in $M$. We will denote the degree 1 piece $\mathcal{F}_M^1$.
+    We have a $\Z_{\geq 0}$ grading of $\mathcal{F}_M$ by the number of products of elements in $M$. We will denote the degree 1 piece $\mathcal{F}_M^1$.
     \begin{block}{Proposition}
         For $D$ a disc at $x \in \Sigma$
         \[
             H^*(\mathcal{F}_M^{1}(D))\cong W(M)
         \]
     \end{block}
-    Since we are taking the degree one piece we have that
+    Since we are taking the degree one piece we see that
     \[
-        H^*(\mathcal{F}_M^1(D))= H_*^{Lie}(\mathfrak{g}^\Sigma(D) , \mathcal{M}(D))
+        H^*(\mathcal{F}_M^1(D))= H_*^{Lie}(\hat{\mathcal{G}}(D) , \mathcal{M}(D))
     \]
-    where \[H^*(\mathcal{M}(D)) \cong M \quad H^*(\mathfrak{g}^\Sigma)\cong \mathfrak{g} \otimes \Omega_{hol}^1(D)^{\vee}\cong z^{-1}\mathfrak{g}[z^{-1}].\] Using the spectral sequence for the filtration by symmetric degree the result follows from the isomorphism of vector spaces $W(M) \cong \mbox{Sym}(z^{-1}\mathfrak{g}[z^{-1}]) \otimes M$.
+    where 
+    \[H^*(\mathcal{M}(D)) \cong M \quad H^*(\hat{\mathcal{G}}(D))\cong \mathfrak{g} \otimes \Omega_{hol}^1(D)^{\vee}\cong z^{-1}\mathfrak{g}[z^{-1}].\] 
+    Using the spectral sequence for the filtration by symmetric degree we find the isomorphism of vector spaces $W(M) \cong \mbox{Sym}(z^{-1}\mathfrak{g}[z^{-1}]) \otimes M$.
 \end{frame}
 
 
 
 
 
-\begin{frame}{Conformal Blocks}
-    We have an action of $\mathfrak{g}_{out} :=\mathfrak{g}[X\setminus \{x\}]$ on $V_k (\mathfrak{g})$ by taking residues. FBZ show that the space of conformal blocks can be identified as $\mathfrak{g}[X\setminus x]$ invariant functionals on $V_k (\mathfrak{g})$.
-    \begin{block}{Theorem}
+\begin{frame}{Coinvariants}
+    The space of coinvariants is defined as the dual of the space of conformal blocks denoted 
+    \[
+    H_{V}(X,(x_i),(M_i))_{i=1}^n.
+    \]
+    We have an action of $\mathfrak{g}_{out} :=\mathfrak{g}[X\setminus \{x\}]$ on $V_k (\mathfrak{g})$ by taking residues. FBZ show that 
+    \[
+    H_{V}(X,(x_i),(M_i))_{i=1}^n =\frac{ \mathcal{M}_{1,x_1} \otimes \dots \otimes \mathcal{M}_{n,x_n} }{\mathfrak{g}_{out}\cdot ( \mathcal{M}_{1,x_1} \otimes \dots \otimes \mathcal{M}_{n,x_n})}.
+    \] 
+    If we construct $\mathcal{F}_M$ for $(M_i)$ inserted at $(x_i)$ on a compact Riemann surface $X$ then
+    \begin{align*}
+    H^0(\mathcal{F}^{(1,\dots,1)}(X)) \cong H_0(\Omega^{0,*}(X) \otimes \mathfrak{g} \oplus \C K , M_1\otimes \dots \otimes M_n) \\
+     \cong H_0(R\Gamma(X,\mathcal{O}_X)\otimes \mathfrak{g} \oplus \C K,M_1\otimes \dots \otimes M_n ).
+    \end{align*}
+    
+   
 
 
-        $$ H_0 ( \mathfrak{g} \otimes R\Gamma(X, \mathcal{O}_X), \C) \simeq \operatorname{V}_{\mathfrak{g},k} / \mathfrak{g}[X \backslash x] \cdot \operatorname{V}_{\mathfrak{g},k} $$
+\end{frame}
+
+\begin{frame}{Coinvariants via Factorization Homology}
+     \begin{block}{Theorem}
+        On a compact Riemann surface $X$
+
+        \[
+         H_0 ( \mathfrak{g} \otimes R\Gamma(X, \mathcal{O}_X), \C) \simeq H_0(\mathfrak{g}_{out}, W_1\otimes \dots \otimes W_n)
+          \]
     \end{block}
-
-
+For one module inserted at $x\in X$ we have the formal Cech cover $D_x,X\setminus\{x\}$. $\mathcal{F}_M^1$ computes the following Lie algebra homology 
+\[
+H_*(\hat{\mathcal{G}}(X),\mathcal{M}(X))
+\]
+where $H^*(\mathcal{M}(X))\cong M$. By Hocschild-Serre with $\mathfrak{h}=\hat{\mathcal{G}}(D)$ we can instead compute 
+\[
+H_*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D),H_*(\hat{\mathcal{G}}(D),\mathcal{M}(X))).
+\]
+Schematically 
+\[
+H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H_*(\hat{\mathcal{G}}(D),\mathcal{M}(X))\cong W(M).
+\]
 \end{frame}
-
 
 \begin{frame}{Raviolo Vertex Algebra}
-    Raviolo vertex algebras were introduced by (GW). They are vertex algebras with multiplication parameterized by the formal raviolo
+    Raviolo vertex algebras were introduced by (Garner,Williams). They are vertex algebras with multiplication parameterized by the formal raviolo
     \[
         \mathbb{R}\mathrm{av} = \mathbb{D} \cup_{\mathbb{D}^\times} \mathbb{D}.
     \]
@@ -465,7 +499,7 @@
 \end{frame}
 
 \begin{frame}{Raviolo Vertex Algebra}
-    \begin{block}{Definition (GW)}
+    \begin{block}{Definition (Garner--Williams)}
         A Raviolo Vertex Algebra is the data $(V, |0\rangle , \partial, Y) $ where
 
         \begin{itemize}
@@ -504,7 +538,7 @@
         [A \otimes \alpha, B \otimes \beta] := [A,B] \otimes \alpha \beta - \kappa h(A,B) \mbox{Res}_z dz \alpha \partial_z \beta.
     \]
     
-    Let $\C_{\kappa} = \mbox{Sym}(\C\kappa[-1])$ be the representation of the Lie subalgebra $\hat{\mathfrak{g}}_{\geq 0} =  \C \kappa[-1] \oplus \mathfrak{g}[[u]]\subseteq \mathfrak{g}_h$ where $\kappa$ acts by multiplication by $\kappa$ and $\mathfrak{g}[[z]]$ acts by 0 .
+    Let $\C_{\kappa} = \mbox{Sym}(\C\kappa[-1])$ be the representation of the Lie subalgebra $\hat{\mathfrak{g}}_{\geq 0} =  \C \kappa[-1] \oplus \mathfrak{g}[[z]]\subseteq \mathfrak{g}_h$ where $\kappa$ acts by multiplication by $\kappa$ and $\mathfrak{g}[[z]]$ acts by 0 .
     The induced $U(\hat{\mathfrak{g}}_h)$ module is a raviolo vertex algebra
     \[
         V[\mathfrak{g},h] : = U(\hat{\mathfrak{g}}_h) \otimes _{U(\hat{\mathfrak{g}}_{\geq 0})} \C_{\kappa}.
@@ -541,11 +575,17 @@
 \end{frame}
 
 \begin{frame}{Operad}
-    The operad $B^3$ whose morphisms are given by configurations of balls. It is colored by the radius of the balls. Denote
+    The operad $B^3$ has morphisms given by configurations of balls. It is colored by the radius of the balls. Denote
     \[
-        B_3(r_1,\dots,r_k|s)
+        B_3(r_1,\dots,r_k|s)\subseteq (\R^3)^k
     \]
-    as the configurations of balls of radius $r_i$ all disjoint and contained in $B^3_s(0)$. Composition is given by removing the intermediate ball.
+    as configurations of balls of radius $r_i$ all disjoint and contained in $B^3_s(0)$. Composition is given by removing the intermediate ball 
+    
+    \begin{align*}
+    \circ_i: B_3(r_1,\dots,r_k|s_i)\times & B_3(s_1,\dots,s_j|t)\to \\ & B_3(s_1,\dots,s_{i-1},r_1,\dots,r_k,s_{i+1},\dots,s_j|t)
+    \end{align*}
+    
+
 \begin{center}
 \begin{tikzpicture}
     % First circle
@@ -554,20 +594,36 @@
     \draw (0,1) -- (0.5,1) node[midway, below] {$r_1$};
 
     % Second circle
-    \coordinate (Z) at (2.5,0.5);
-    \draw (Z) circle (0.5);
+    \coordinate (Z) at (1.5,0.5);
+    \draw (Z) circle (0.3);
     \fill (Z) circle (1.5pt);
-    \draw (Z) -- ++(0.5,0) node[midway, below] {$r_k$};
+    \draw (Z) -- (1.8,0.5) node[midway, below] {$r_k$};
 
     % Curved ellipsis made of three dots
-    \fill (0.9,0.9) circle (0.8pt);
-    \fill (1.25,0.82) circle (0.8pt);
-    \fill (1.65,0.76) circle (0.8pt);
+    \fill (0.6,0.9) circle (0.8pt);
+    \fill (.9,0.82) circle (0.8pt);
+    \fill (1.2,0.76) circle (0.8pt);
 
     % Big circle
-    \draw (0,0) circle (3.5);
+    \draw (0,0) circle (2);
     \fill (0,0) circle (1.5pt);
-    \draw (0,0) -- (3.5,0) node[midway, below] {$s$};
+    \draw (0,0) -- (2,0) node[midway, below] {$s_i$};
+
+    \draw (-5,0) circle (2);
+    \fill (-5,0) circle (1.5pt);
+    \draw (-5,0) -- (-3,0) node[midway, below] {$s_1$};
+     \draw (4,0) circle (1);
+    \fill (4,0) circle (1.5pt);
+    \draw (4,0) -- (3,0) node[midway, below] {$s_j$};
+
+    \fill(-2.2,0) circle(0.8pt);
+    \fill(-2.5,0) circle(0.8pt);
+    \fill(-2.8,0) circle(0.8pt);
+
+    \fill(2.2,0) circle(0.8pt);
+    \fill(2.5,0) circle(0.8pt);
+    \fill(2.8,0) circle(0.8pt);
+
 \end{tikzpicture}
 \end{center}
 \end{frame}
@@ -580,7 +636,7 @@
     \]
     If this is smooth, it is smoothly translation-invariant.
 
-    We can define the cooperad of smooth functions on $B^3$, $C^\infty(B^3)$, with pull back of the composition map. 
+    We can define the cooperad of smooth functions on $B^3$, $C^\infty(B^3)$, with pull back of the composition map as cocomposition. 
     
     
     A smoothly translation-invariant prefactorization algebra defines an algebra over this colored cooperad as we have maps
@@ -682,7 +738,7 @@ Let $V=\oplus_{k\in \Z} H^*(\mathcal{F}_k(B^3_r(0)))$. $V$ has the structure of 
             \overline{\C[\partial_z] \omega(\ubar{z};0)} & *=1
         \end{cases}
     \]
-    Denote $\Omega_z^n :=\frac{1}{n!}\partial_z^n \omega(\ubar{z},0)$ which is an analog of $z^{-n-1}$,
+    Denote $\Omega_z^n :=\frac{1}{n!}\partial_z^n \omega(\ubar{z};0)$ which is an analog of $z^{-n-1}$,
     \[
         \int_{S^2(0)}z^n dz \Omega^m_z = \delta_{n,m}.
     \]
@@ -734,9 +790,12 @@ Let $V=\oplus_{k\in \Z} H^*(\mathcal{F}_k(B^3_r(0)))$. $V$ has the structure of 
     
     The composition of vertex operators is given by
     \[
-        \mathcal{L}'_z \mathcal{L}'_w m_{z,w,0}(a,b,c)= Y(a,z)Y(b,w)c
+        \mathcal{L}'_z \mathcal{L}'_w m_{z,w,0}(a,b,c)= Y(a,z)Y(b,w)c,
     \]
-    where we integrate $z$ over a larger sphere than $w$. Then from the following cycle relation
+    \[
+    \mathcal{L}'_w \mathcal{L}'_z m_{z,w,0}(a,b,c)= Y(b,w)Y(a,z)c.
+    \]
+    The ordering of the expansion gives the relative radii of the spheres that we integrate over. Then from the following cycle relation
     \begin{tikzpicture}[every node/.style={font=\small}]
 
         % ==================================================
@@ -862,7 +921,7 @@ Let $V=\oplus_{k\in \Z} H^*(\mathcal{F}_k(B^3_r(0)))$. $V$ has the structure of 
     \]
     The raviolo current factorization algebra is the factorization envelope of $\hat{\mathcal{G}} :=\mathcal{G} \oplus \kappa\C[-2]$, or,
     \[
-        \mathcal{F} := \mathrm{Sym}(\hat{\mathfrak{g}}[1] ,d'+d_{CE}).
+        \mathcal{F} := \mathrm{Sym}(\hat{\mathcal{G}}[1] ,d'+d_{CE}).
     \]
     
     \begin{block}{Theorem}
