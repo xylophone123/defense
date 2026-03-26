@@ -225,7 +225,7 @@
               \begin{multline}
                   Y(J^{a_1}_{n_1} \dotsb J^{a_{m}}_{n_m}v_k,z) = \\ \frac{1}{(-n_1-1)!\dotsb(-n_m - 1)!} :\partial_z^{n_1-1}J^{a_1}(z) \dotsb \partial_z^{-n_m-1}J^{a_m}(z):
               \end{multline}
-        \item $\mbox{deg}J^{a_1}_{n_1} \dotsb J^{a_m}_{n_m} v_{k} = - \sum_{i=1}^m n_i$
+        % \item $\mbox{deg}J^{a_1}_{n_1} \dotsb J^{a_m}_{n_m} v_{k} = - \sum_{i=1}^m n_i$
     \end{itemize}
 \end{frame}
 
@@ -289,25 +289,22 @@
         \]
         \begin{itemize}
             \item $Y_M(\vac,z)=\mbox{Id}_M$
-            \item For $A,B \in V$ $C \in M$
-                  \[
-                      Y_M(A,z)Y_M(B,w)C \in M((z))((w))
-                  \]
-                  \[
-                      Y_M(B,w)Y_M(A,z)C \in M((w))((z))
-                  \]
-                  \[
-                      Y_M(Y(A,z-w)B,w)C \in M((w))((z-w))
-                  \]
-                  are all expansions of the same element of $
-                      M[[z,w]][z^{-1},w^{-1},(z-w)^{-1}]$
+            \item Locality type axiom for $Y_M(-,z)$.
+            % \item For $A,B \in V$ $C \in M$
+            %       \[
+            %           Y_M(A,z)Y_M(B,w)C \in M((z))((w))
+            %       \]
+            %       \[
+            %           Y_M(B,w)Y_M(A,z)C \in M((w))((z))
+            %       \]
+            %       \[
+            %           Y_M(Y(A,z-w)B,w)C \in M((w))((z-w))
+            %       \]
+            %       are all expansions of the same element of $
+            %           M[[z,w]][z^{-1},w^{-1},(z-w)^{-1}]$
         \end{itemize}
     \end{block}
-\end{frame}
-
-
-\begin{frame}{Weyl Modules}
-    For $M \in \mathfrak{g}$-mod we can define the Weyl module $W(M)$ for $\hat{\mathfrak{g}}$ as
+        For $M \in \mathfrak{g}$-mod we can define the Weyl module $W(M)$ for $\hat{\mathfrak{g}}$ as
     \[
         \mbox{Ind}^{\hat{\mathfrak{g}}}_{\mathfrak{g}[[t]]\oplus \C K} M
     \]
@@ -317,6 +314,11 @@
     \]
     $W(M)$ is a module for the Kac-Moody vertex algebra.
 \end{frame}
+
+
+% \begin{frame}{Weyl Modules}
+
+% \end{frame}
 
 
 
@@ -339,7 +341,7 @@
 % \end{frame}
 
 \begin{frame}{Attaching to Complex Curve}
-    A vertex algebra module is \textbf{quasi-conformal} if it has an action of $\mathrm{Der}(\mathcal{O})= \mathrm{Aut}(\C[[t]])$ which can be exponentiated to an action of $\mathrm{Aut}(\mathcal{O})$. For a Riemann surface $X$ and $M$ a quasi-conformal $V$-module, FBZ construct the following sheaf
+    A \textbf{quasi-conformal} vertex algebra module has an action of $\mathrm{Aut}(\C[[t]])$. For a Riemann surface $X$ and $M$ a quasi-conformal $V$-module, FBZ construct the following sheaf
     \[
         \mathcal{M}:= \hat{X}\times_{\mathrm{Aut}\mathcal{O}} M
     \]
@@ -382,20 +384,17 @@
     \]
     where $\mathcal{E}^\bullet$ is a resolution of the skyscraper sheaf at $x \in X$. $\mathcal{M}$ is a dg-mod for $\hat{\mathcal{G}}$. The differential forms act in the obvious way and the central extension by 0. We can define the following precosheaf of dg-Lie Algebras
     \[
-        \hat{\mathcal{G}}   \ltimes \mathcal{M}
+        (\hat{\mathcal{G}}   \ltimes \mathcal{M})_c
     \]
-    Taking the factorization envelope of compactly supported sections we have a prefactorization algebra
+    Taking the factorization envelope we have a prefactorization algebra
     \[
-        \mathcal{F}_M = \mathrm{Sym}((\hat{\mathcal{G}}   \ltimes \mathcal{M})_c,d_{CE}+\bar{\partial}+d_{M}).
+        \mathcal{F}_M = \mathrm{Sym}((\hat{\mathcal{G}}   \ltimes \mathcal{M})_c[1],d_{CE}+\bar{\partial}+d_{M}).
     \]
-    Note at the level of cohomology for $U$ with $x \not\in U$
-    \[
-        \mathcal{F}_M (U) \cong \mathcal{F}_{\mathfrak{g}} (U)
-    \]
+    We have a $\Z_{\geq 0}$ grading of $\mathcal{F}_M$ by the number of products of elements in $M$. We will denote the degree 1 piece $\mathcal{F}_M^1$.
 \end{frame}
 
 \begin{frame}{Derived Weyl Modules}
-    We have a $\Z_{\geq 0}$ grading of $\mathcal{F}_M$ by the number of products of elements in $M$. We will denote the degree 1 piece $\mathcal{F}_M^1$.
+    
     \begin{block}{Proposition}
         For $D$ a disc at $x \in \Sigma$
         \[
@@ -420,14 +419,14 @@
     \[
     H_{V}(X,(x_i),(M_i))_{i=1}^n.
     \]
-    We have an action of $\mathfrak{g}_{out} :=\mathfrak{g}[X\setminus \{x\}]$ on $V_k (\mathfrak{g})$ by taking residues. FBZ show that 
+    We have an action of $\mathfrak{g}_{out} :=\mathfrak{g}[X\setminus \{x\}]$ on $\mathcal{M}_{i,x_i}$ by taking residues. FBZ show that 
     \[
-    H_{V}(X,(x_i),(M_i))_{i=1}^n =\frac{ \mathcal{M}_{1,x_1} \otimes \dots \otimes \mathcal{M}_{n,x_n} }{\mathfrak{g}_{out}\cdot ( \mathcal{M}_{1,x_1} \otimes \dots \otimes \mathcal{M}_{n,x_n})}.
+    H_{V}(X,(x_i),(M_i))_{i=1}^n =H_0^{Lie}(\mathfrak{g}_{out},\mathcal{M}_{1,x_1} \otimes \dots \otimes \mathcal{M}_{n,x_n})
     \] 
     If we construct $\mathcal{F}_M$ for $(M_i)$ inserted at $(x_i)$ on a compact Riemann surface $X$ then
     \begin{align*}
-    H^0(\mathcal{F}^{(1,\dots,1)}(X)) \cong H_0(\Omega^{0,*}(X) \otimes \mathfrak{g} \oplus \C K , M_1\otimes \dots \otimes M_n) \\
-     \cong H_0(R\Gamma(X,\mathcal{O}_X)\otimes \mathfrak{g} \oplus \C K,M_1\otimes \dots \otimes M_n ).
+    H^0(\mathcal{F}^{(1,\dots,1)}(X)) \cong H_0(\Omega^{0,*}(X) \otimes \mathfrak{g} \oplus \C K ,\mathcal{M}_1(X)\otimes \dots \otimes \mathcal{M}_n(X) ) \\
+     \cong H_0(R\Gamma(X,\mathcal{O}_X)\otimes \mathfrak{g} \oplus \C K,\mathcal{M}_1(X)\otimes \dots \otimes \mathcal{M}_n(X) ).
     \end{align*}
     
    
@@ -440,7 +439,7 @@
         On a compact Riemann surface $X$
 
         \[
-         H_0 ( \mathfrak{g} \otimes R\Gamma(X, \mathcal{O}_X), \C) \simeq H_0(\mathfrak{g}_{out}, W_1\otimes \dots \otimes W_n)
+         H_0 ( \mathfrak{g} \otimes R\Gamma(X, \mathcal{O}_X), \mathcal{M}_1(X)\otimes \dots \otimes \mathcal{M}_n(X) ) \simeq H_0(\mathfrak{g}_{out}, M_1\otimes \dots \otimes M_n)
           \]
     \end{block}
 For one module inserted at $x\in X$ we have the formal Cech cover $D_x,X\setminus\{x\}$. $\mathcal{F}_M^1$ computes the following Lie algebra homology 
@@ -481,7 +480,7 @@ H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H
 \begin{frame}{Raviolo Vertex Algebra}
     There is an action on of $\partial_z$ on $\mathcal{K}$ and $\mathcal{K}_{dist}$ defined as 
     \[
-    \partial_z z^n = n z^{n-1}, \quad \partial_z \Omega_z^n =(n+1)\omega_z^{n+1}
+    \partial_z z^n = n z^{n-1}, \quad \partial_z \Omega_z^n =(n+1)\Omega_z^{n+1}
     \]
     A raviolo field on $V$ is an element $A(z) \in \mathrm{End}(V)\otimes \mathcal{K}_{dist}$ such that for any $B\in V$
     \[
@@ -506,7 +505,7 @@ H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H
             \item $V = \oplus V^r$ is a $\Z$ graded vector space
             \item $|0\rangle  \in V^0$ is a distinguished element (vacuum vector).
             \item $ \partial : V \to V$ is an endomorphism of degree 0 (the translation operator).
-            \item $Y= Y(-,z):V \to \mbox{End}(V) \otimes \mathcal{K}_{dist}$ is a linear map of degree 0.
+            \item $Y(-,z):V \to \mbox{End}(V) \otimes \mathcal{K}_{dist}$ is a linear map of degree 0.
 
         \end{itemize}
 
@@ -518,12 +517,14 @@ H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H
     \begin{block}{Definition Continued}
         \begin{enumerate}
             \item For any $A \in V$ the element $Y(A,z)$ is a raviolo field.
-            \item One has
+            \item The translation axiom : for any $A \in V$ 
                   \[
-                      [\partial,Y(A,z)] = \partial_z Y(A,z)
+                      [\partial,Y(A,z)] = \partial_z Y(A,z).
                   \]
-                  for any $A \in V$ (translation axiom).
-            \item The vacuum vector satisfies $\partial |0 \rangle = 0 $, $Y(|0\rangle,z) = Id$, and for any $A\in V$, $Y(A,z)|0\rangle \in V[[z]]$ and $Y(A,z=0)|0\rangle = A$ (vacuum axiom).
+                  
+            \item The vacuum axiom: $\partial |0 \rangle = 0 $, $Y(|0\rangle,z) = Id$, and for any $A\in V$, 
+            \[Y(A,z)|0\rangle \in V[[z]] \quad Y(A,z=0)|0\rangle = A\]
+
             \item For any $A,B\in V$ the fields $Y(A,z), Y(B,z)$ are mutually local.
         \end{enumerate}
     \end{block}
@@ -537,17 +538,33 @@ H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H
     \[
         [A \otimes \alpha, B \otimes \beta] := [A,B] \otimes \alpha \beta - \kappa h(A,B) \mbox{Res}_z dz \alpha \partial_z \beta.
     \]
-    
-    Let $\C_{\kappa} = \mbox{Sym}(\C\kappa[-1])$ be the representation of the Lie subalgebra $\hat{\mathfrak{g}}_{\geq 0} =  \C \kappa[-1] \oplus \mathfrak{g}[[z]]\subseteq \mathfrak{g}_h$ where $\kappa$ acts by multiplication by $\kappa$ and $\mathfrak{g}[[z]]$ acts by 0 .
+    \pause
+    Let $\C[\kappa] = \C \oplus \C \kappa[-1]$ be the representation of the Lie subalgebra $\hat{\mathfrak{g}}_{\geq 0} =  \C \kappa[-1] \oplus \mathfrak{g}[[z]]\subseteq \mathfrak{g}_h$ where $\kappa$ acts by multiplication by $\kappa$ and $\mathfrak{g}[[z]]$ acts by 0 .
     The induced $U(\hat{\mathfrak{g}}_h)$ module is a raviolo vertex algebra
     \[
         V[\mathfrak{g},h] : = U(\hat{\mathfrak{g}}_h) \otimes _{U(\hat{\mathfrak{g}}_{\geq 0})} \C_{\kappa}.
     \]
-    For $\mu_{a,n}:= T_a \otimes \Omega^n_z$ and $J_{a,n}=T_a \otimes z^n$, for $(T_i)_{i=1}^n$ a basis of $\mathfrak{g}$, the generating vertex operators are
+    
+    
+\end{frame}
+
+\begin{frame}
+
+Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $(T_i)_{i=1}^n$ a basis of $\mathfrak{g}$. As a vector space $V[\mathfrak{g},h]$ is $\C[\kappa]$ linear polynomials in the $\mu_{i,n}$.
+
+\begin{itemize}
+    \item $V = V[\mathfrak{g},h]$
+    \item The vacuum vector is $|0\rangle := 1\otimes 1$.
+    \item The generating vertex operators are
     \[
         Y(\mu_{a,0}|0\rangle,z) = \sum_{n\geq 0 }z^n \mu_{a,n} + \Omega^n_{z} J_{a,n}.
     \]
     
+    \item The translation operator acts by 
+     \[
+        \partial(J_{a,n})=-n J_{a,n-1} \quad \partial \mu_{a,n} = (n+1)\mu_{a,n+1} \quad \partial \kappa =0
+     \]
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{$G$-invariant prefactorization algebras}
@@ -575,7 +592,7 @@ H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H
 \end{frame}
 
 \begin{frame}{Operad}
-    The operad $B^3$ has morphisms given by configurations of balls. It is colored by the radius of the balls. Denote
+    The operad $B^3$ has morphisms given by configurations of 3-balls. It is colored by the radius of the balls. Denote
     \[
         B_3(r_1,\dots,r_k|s)\subseteq (\R^3)^k
     \]
@@ -635,7 +652,9 @@ H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H
         m[p]:\mathcal{F}_{r_1}\times \dots \times \mathcal{F}_{r_k} \to \mathcal{F}_s
     \]
     If this is smooth, it is smoothly translation-invariant.
-
+    \pause 
+   
+   
     We can define the cooperad of smooth functions on $B^3$, $C^\infty(B^3)$, with pull back of the composition map as cocomposition. 
     
     
@@ -924,10 +943,20 @@ Let $V=\oplus_{k\in \Z} H^*(\mathcal{F}_k(B^3_r(0)))$. $V$ has the structure of 
         \mathcal{F} := \mathrm{Sym}(\hat{\mathcal{G}}[1] ,d'+d_{CE}).
     \]
     
+    
+\end{frame}
+
+\begin{frame}{Raviolo Current Factorizaiton Algebra}
+    This factorization algebra is topological-holomorphic translation-invariant with derivations
+    \[
+    \eta =\frac{\partial}{\partial d\bar{z}} \qquad \xi  =\frac{\partial}{\partial dt}
+    \]
+
     \begin{block}{Theorem}
         The raviolo vertex algebra defined by $\mathcal{F}$ on $\C\times \R$ is the raviolo current vertex algebra.
     \end{block}
 \end{frame}
+
 
 
 \end{document}
