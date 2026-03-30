@@ -273,7 +273,7 @@
         \mathcal{F}_{\mathfrak{g}} = C_*(\hat{\mathcal{G}},\bar{\partial}+d_{CE}).
     \]
 
-    The Kac-Moody factorization algebra produces the Kac-Moody vertex algebra.
+    The Kac-Moody factorization algebra produces the Kac-Moody vertex algebra (Costello--Gwilliam).
     \[
         V = \oplus_{n\in \Z}H^{*}(\mathcal{F}_{\mathfrak{g},n}(D)).
     \]
@@ -470,14 +470,14 @@ H_{V_{k}(\mathfrak{g})}(X,(x_i),(M_i))_{i=1}^n:=H_0(\mathfrak{g}_{out},M_1 \otim
 
 \begin{frame}{Coinvariants}
 
-    If we construct $\mathcal{F}_M$ for $M$ inserted at $x$ on a compact Riemann surface $X$ then
+    If we construct $\mathcal{F}_M$ for $M$ inserted at $x$ on a compact Riemann surface $X$ 
     \begin{align*}
     H^0(\mathcal{F}^{1}(X)) \cong & H_0(\Omega^{0,*}(X) \otimes \mathfrak{g} \oplus \C K ,\mathcal{M}(X) ) \\
      \cong & H_0(R\Gamma(X,\mathcal{O}_X)\otimes \mathfrak{g} \oplus \C K,\mathcal{M}(X) ).
     \end{align*}
     
     \begin{block}{Theorem (Gwilliam--Oren--Szczesny--Williams)}
-        On a compact Riemann surface $X$
+        On a compact Riemann surface $X$ the $0$th factorization homology of the degree 1 piece recovers the space of coinvariants
 
         \[
          H_0 ( \mathfrak{g} \otimes R\Gamma(X, \mathcal{O}_X), \mathcal{M}(X) ) \simeq H_0(\mathfrak{g}_{out}, M)
@@ -487,21 +487,21 @@ H_{V_{k}(\mathfrak{g})}(X,(x_i),(M_i))_{i=1}^n:=H_0(\mathfrak{g}_{out},M_1 \otim
 
 \end{frame}
 
-\begin{frame}{Coinvariants via Factorization Homology}
+% \begin{frame}{Coinvariants via Factorization Homology}
 
-For one module inserted at $x\in X$ we have the formal Cech cover $D_x,X\setminus\{x\}$. $\mathcal{F}_M^1$ computes the following Lie algebra homology 
-\[
-H_*(\hat{\mathcal{G}}(X),\mathcal{M}(X))
-\]
-where $H^*(\mathcal{M}(X))\cong M$. By Hocschild-Serre with $\mathfrak{h}=\hat{\mathcal{G}}(D)$ we can instead compute 
-\[
-H_*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D),H_*(\hat{\mathcal{G}}(D),\mathcal{M}(X))).
-\]
-Schematically 
-\[
-H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H_*(\hat{\mathcal{G}}(D),\mathcal{M}(X))\cong W(M).
-\]
-\end{frame}
+% For one module inserted at $x\in X$ we have the formal Cech cover $D_x,X\setminus\{x\}$. $\mathcal{F}_M^1$ computes the following Lie algebra homology 
+% \[
+% H_*(\hat{\mathcal{G}}(X),\mathcal{M}(X))
+% \]
+% where $H^*(\mathcal{M}(X))\cong M$. By Hocschild-Serre with $\mathfrak{h}=\hat{\mathcal{G}}(D)$ we can instead compute 
+% \[
+% H_*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D),H_*(\hat{\mathcal{G}}(D),\mathcal{M}(X))).
+% \]
+% Schematically 
+% \[
+% H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H_*(\hat{\mathcal{G}}(D),\mathcal{M}(X))\cong W(M).
+% \]
+% \end{frame}
 
 % \begin{frame}{Raviolo Vertex Algebra}
 %     Raviolo vertex algebras were introduced by (Garner,Williams). They are vertex algebras with multiplication parameterized by the formal raviolo
@@ -570,7 +570,7 @@ H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H
             \item $ \partial : V \to V$ is an endomorphism of degree 0 (the translation operator).
             \item $Y(-,z):V \to \mbox{End}(V) \otimes \mathcal{K}_{dist}$ is a linear map of degree 0
             \[
-            Y(A,z) = \sum_{n \geq 0 } v_n z^n + v_{-n-1} \Omega^n_z 
+            Y(A,z) = \sum_{n \geq 0 } a_n z^n + a_{-n-1} \Omega^n_z 
             \]
             
 
@@ -585,7 +585,10 @@ H^*(\hat{\mathcal{G}}(X)/\hat{\mathcal{G}}(D) )\cong \mathfrak{g}_{out}, \quad H
 \begin{frame}{Raviolo Vertex Algebra}
     \begin{block}{Definition Continued}
         \begin{enumerate}
-            \item For any $A \in V$ the element $Y(A,z)$ is a raviolo field.
+            \item For any $A,B\in V$ the element 
+            \[
+            Y(A,z)B = \sum_{n \geq 0} v_n z^n + \sum_{k=0}^N v_n \Omega_z^k
+            \]
             \item The translation axiom : for any $A \in V$ 
                   \[
                       [\partial,Y(A,z)] = \partial_z Y(A,z).
@@ -639,6 +642,14 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Topological-Holomorphic Prefactorization Algebras}
+\begin{itemize}
+    \item Holomorphic prefactorization algebras yield vertex algebras
+    \item It is natural to ask for a class of prefactorization algebras which produce raviolo vertex algebras.
+    \item Raviolo vertex algebras model topological-holomorphic field theory so our prefactorization algebras should also be topological-holomorphic in some sense.
+    \item The appropriate way to describe a topological-holomorphic behavior is through the language of operads/cooperads.
+\end{itemize}
+\end{frame}
 
 \begin{frame}{Operad}
     The operad $B^3$ has morphisms given by configurations of 3-balls. It is colored by the radius of the balls. Define the space of $k$-ary morphisms
@@ -696,7 +707,10 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
 
 
 \begin{frame}{Cooperad}
-    Translation-invariant prefactorization algebras on $\R^3$ are algebras over this operad. Let $\mathcal{F}_r := \mathcal{F}(B^3_r(0))$. For each $p\in B_3(r_1,\dots,r_k|s)$ we have a multilinear map
+    \begin{itemize}
+        
+    
+    \item Translation-invariant prefactorization algebras on $\R^3$ are algebras $B^3$. Let $\mathcal{F}_r := \mathcal{F}(B^3_r(0))$. For each $p\in B_3(r_1,\dots,r_k|s)$ we have a multilinear map
     \[
         m[p]:\mathcal{F}_{r_1}\times \dots \times \mathcal{F}_{r_k} \to \mathcal{F}_s
     \]
@@ -704,13 +718,14 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
     \pause 
    
    
-    We can define the cooperad of smooth functions on $B^3$, $C^\infty(B^3)$, with pull back of the composition map $\circ_i^*$ as cocomposition. 
+    \item We can define the cooperad  $C^\infty(B^3)$ with pull back of the composition map $\circ_i^*$ as cocomposition. 
     
     
-    A smoothly translation-invariant prefactorization algebra defines an algebra over this colored cooperad as we have maps
+    \item A smoothly translation-invariant prefactorization algebra defines an algebra over this colored cooperad as we have maps
     \[
         \mu(r_1,\dots,r_k|s) \in C^\infty(B^3(r_1,\dots,r_k|s),\mathrm{Hom}(\mathcal{F}_{r_1},\dots ,\mathcal{F}_{r_k}|\mathcal{F}_s)).
     \]
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Topological-Holomorphic (TH) Prefactorization Algebras}
@@ -795,19 +810,20 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
 
 
 
-\begin{frame}{Cohomological Laurent Expansion}
+% \begin{frame}{Cohomological Laurent Expansion}
+    
+%     For $\alpha \in \mathcal{A}^{0;*}(\C\times \R \setminus\{0\})$, define the cohomological Laurent expansion as
+%     \[
+%         \mathcal{L}' \alpha=\int_{S^2(0)}\sum_{i\geq 0} dz \Omega^i_z \tau^i \alpha+ \sum_{j\geq 0 } \lambda^j z^{j} dz \alpha
+%     \]
+%     Then identify $\tau^i$ with $z^i$ and $\lambda^i$ with $\Omega^i_z$ so $\mathcal{L}' \alpha \in \mathcal{K}_{dist}$
+% \end{frame}
+
+\begin{frame}{TH Pre-FA to Raviolo Vertex Algebra}
     $H^{0;0}(\C \times \R \setminus \{0\})$ is spanned by $z^n$ and $H^{0;1}(\C\times \R \setminus \{0\})$ is spanned by $\Omega^n_z$. $\Omega_z^n$ is an analog of $z^{-n-1}$,
     \[
         \int_{S^2(0)}z^n dz \Omega^m_z = \delta_{n,m}.
     \]
-    For $\alpha \in \mathcal{A}^{0;*}(\C\times \R \setminus\{0\})$, define the cohomological Laurent expansion as
-    \[
-        \mathcal{L}' \alpha=\int_{S^2(0)}\sum_{i\geq 0} dz \Omega^i_z \tau^i \alpha+ \sum_{j\geq 0 } \lambda^j z^{j} dz \alpha
-    \]
-    Then identify $\tau^i$ with $z^i$ and $\lambda^i$ with $\Omega^i_z$ so $\mathcal{L}' \alpha \in \mathcal{K}_{dist}$
-\end{frame}
-
-\begin{frame}{TH Pre-FA to Raviolo Vertex Algebra}
     For $V= \oplus_{k \in \Z}  H^*(\mathcal{F}_k(B^3_r))$ we have an element
     \[
         m_{\ubar{z},0}(-,-)\in H^{0;*}((\C \times \R)\setminus \{0\}, \mathrm{Hom}(V\otimes V,V)).
@@ -842,6 +858,19 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
         \end{scope}
     \end{tikzpicture}
 \end{center}
+\end{frame}
+
+\begin{frame}{Locality}
+\begin{itemize}
+    \item Mutual locality for vertex operators is equivalent to saying that the matrix coefficients of $A(z)B(w)$ and $B(w)A(z)$ are expansions of the same element $f_{A,B} \in \C[[z,w]][z^{-1},w^{-1},(z-w)^{-1}]$. 
+    \item For vertex operators mutually local can be rephrased as 
+    \[
+        [A(z),B(w)] = \sum_{i=0}^n \partial^i_w\delta(z-w) c_i(w)
+    \]
+    which can be interpreted as saying that the commutator is the difference between boundary values of expansions of a meromorphic function function when $|z|<|w|$ and $|w|<|z|$. 
+    As residues we can calculate this term by term with the following residue around $w$. 
+    
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Locality}
@@ -948,7 +977,7 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
     \end{tikzpicture}
    
    
-    we see that the commutator is given by the integral over the third cycle.
+    we see that the commutator is given by the integral over the third cycle. We can think of this as a difference between boundary values of topological-holomoprhic "functions".
 \end{frame}
 
 \begin{frame}{Locality}
@@ -986,7 +1015,7 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
 \end{frame}
 
 \begin{frame}{Raviolo Current Factorization Algebra}
-    This factorization algebra is topological-holomorphic translation-invariant with derivations
+    $\mathcal{F}$ is topological-holomorphic translation-invariant with derivations
     \[
     \eta =\frac{\partial}{\partial d\bar{z}} \qquad \xi  =\frac{\partial}{\partial dt}.
     \]
