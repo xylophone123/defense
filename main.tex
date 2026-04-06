@@ -72,13 +72,13 @@
     \item Factorization algebras (Costello-Gwilliam) were defined to model observables and symmetries of classical and quantum field theory.
     \item It has already been shown (Costello-Gwilliam) that holomorphic prefactorization algebras can produce vertex algebras.
     \item Vertex algebras have modules and a more interesting related construction of conformal blocks/coinvariants.
-    \item Can factorization algebras produce modules and recover the space of confomal blocks?
+    \item Can factorization algebras produce modules and recover the space of coinvariants?
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Prefactorization algebras}
     \begin{block}{Definition (Costello--Gwilliam)}
-        For $M$ a topological space a prefactorization algebra on $M$ is an assignment $\mathcal{F}$ taking open sets $U$ of $M$ to objects of a category (vector spaces, cochain complexes), $\mathcal{F}(U)$ with
+        For $M$ a topological space a prefactorization algebra on $M$ is an assignment $\mathcal{F}$ taking open $U \subseteq M$ to objects of a category (vector spaces, cochain complexes), $\mathcal{F}(U)$ with
         \begin{itemize}
             \item A linear map $m^{U}_V :\mathcal{F}(U) \to \mathcal{F}(V)$ for $U\subseteq V$.
             \item For $\{U_i\}$ pairwise disjoint and all contained in $V$, a linear map $m_V^{U_1,\dots,U_n} : \mathcal{F}(U_1)\otimes \dotsb \otimes \mathcal{F}(U_n) \to \mathcal{F}(V)$
@@ -149,7 +149,7 @@
 
 
 \begin{frame}{Vertex Algebras}
-    \begin{block}{Definition}(Frenkel Ben-Zvi)
+    \begin{block}{Definition}(Frenkel--Ben-Zvi)
 
         Vertex algebras consist of the following data
         \begin{itemize}
@@ -199,7 +199,7 @@
     \]
     defined by
     \[
-        [X\otimes f(t),Y \otimes g(t)]=[X,Y]\otimes f(t)g(t) -(\mbox{Res}_{t=0} f dg(X,Y) K).
+        [X\otimes f(t),Y \otimes g(t)]=[X,Y]\otimes f(t)g(t) -\mbox{Res}_{t=0} f dg(X,Y) K.
     \]
 \end{frame}
 
@@ -656,12 +656,12 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
 \begin{frame}{Operad}
     The operad $B^3$ has morphisms given by configurations of 3-balls. It is colored by the radius of the balls. Define the space of $k$-ary morphisms
     \[
-        B_3(r_1,\dots,r_k|s)\subseteq (\R^3)^k
+        B^3(r_1,\dots,r_k|s)\subseteq (\R^3)^k
     \]
     as configurations of balls of radius $r_i$ all disjoint and contained in $B^3_s(0)$. Composition is given by removing the intermediate ball 
     
     \begin{align*}
-    \circ_i: B_3(r_1,\dots,r_k|s_i)\times & B_3(s_1,\dots,s_j|t)\to \\ & B_3(s_1,\dots,s_{i-1},r_1,\dots,r_k,s_{i+1},\dots,s_j|t)
+    \circ_i: B^3(r_1,\dots,r_k|s_i)\times & B^3(s_1,\dots,s_j|t)\to \\ & B^3(s_1,\dots,s_{i-1},r_1,\dots,r_k,s_{i+1},\dots,s_j|t)
     \end{align*}
     
 
@@ -712,7 +712,7 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
     \begin{itemize}
         
     
-    \item Translation-invariant prefactorization algebras on $\R^3$ are algebras over $B^3$. Let $\mathcal{F}_r := \mathcal{F}(B^3_r(0))$. For each $p\in B_3(r_1,\dots,r_k|s)$ we have a map
+    \item Translation-invariant prefactorization algebras on $\R^3$ are algebras over $B^3$. Let $\mathcal{F}_r := \mathcal{F}(B^3_r(0))$. For each $p\in B^3(r_1,\dots,r_k|s)$ we have a map
     \[
         m[p]:\mathcal{F}_{r_1}\otimes \dots \otimes \mathcal{F}_{r_k} \to \mathcal{F}_s
     \]
@@ -767,7 +767,7 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
         
         \item $m[p]$ gives us a closed element 
         \[
-            \mu^{d'}(r_1,\dots,r_k|s) \in \mathcal{A}^{0;*}(B_3(r_1,\dots,r_k|s), \mathrm{Hom}(\mathcal{F}_{r_1},\dots,\mathcal{F}_{r_k}|\mathcal{F}_s)).
+            \mu^{d'}(r_1,\dots,r_k|s) \in \mathcal{A}^{0;*}(B^3(r_1,\dots,r_k|s), \mathrm{Hom}(\mathcal{F}_{r_1},\dots,\mathcal{F}_{r_k}|\mathcal{F}_s)).
         \]
         
         \item For all $1\leq i \leq m$
