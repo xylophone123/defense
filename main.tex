@@ -69,9 +69,13 @@
 \begin{frame}{Factorization Algebras and Coinvariants}
 \begin{itemize}
     \item Vertex algebras model the algebraic structure of conformal field theory in 1 complex dimension.
+    \pause
     \item Factorization algebras (Costello-Gwilliam) were defined to model observables and symmetries of classical and quantum field theory.
+    \pause
     \item It has already been shown (Costello-Gwilliam) that holomorphic prefactorization algebras can produce vertex algebras.
+    \pause
     \item Vertex algebras have modules and a more interesting related construction of conformal blocks/coinvariants.
+    \pause
     \item Can factorization algebras produce modules and recover the space of coinvariants?
 \end{itemize}
 \end{frame}
@@ -203,29 +207,29 @@
     \]
 \end{frame}
 
-\begin{frame}{Vacuum Module}
+\begin{frame}{Affine Kac-Moody Vertex Algebra}
     $\mathfrak{g}_{+}:=\mathfrak{g}[[t]] \oplus \C K$ is a Lie subalgebra of $\hat{\mathfrak{g}}$. For $k\in \C$ we can define $\C_k$ as the representation where $\mathfrak{g}[[t]]$ acts by 0 and $K$ acts by $k$. The \textbf{vacuum module} is the induced $\hat{\mathfrak{g}}$-module of $\C_k$
 
     \[
         V_{k}(\mathfrak{g}) = \mbox{Ind}_{\mathfrak{g}[[t]]\oplus \C K}^{\hat{\mathfrak{g}}} \C_k = U(\hat{\mathfrak{g}})\otimes_{U(\mathfrak{g}_{+})}\C_k.
     \]
-    As a vector space $V_k(\mathfrak{g})\cong U(t^{-1}\mathfrak{g}[t^{-1}])$. For $(J^a)_{a=1}^n$ a basis of $\mathfrak{g}$ and defining
+    As a vector space $V_k(\mathfrak{g})\cong U(t^{-1}\mathfrak{g}[t^{-1}])$. \pause 
+    
+    
+    % we can find a PBW basis of $V_k(\mathfrak{g})$ given by letting $v_k = 1 \otimes 1$
+    % \[
+    %     J^{a_1}_{n_1} \dotsb J^{a_m}_{n_m} v_{k}
+    % \]
+    % where $n_1\leq \dotsb \leq n_m<0$ and if $n_i = n_{i+1}$ then $a_i\leq a_{i+1}$
+         $V_k(\mathfrak{g})$ is a vertex algebra; for $(J^a)_{a=1}^n$ a basis of $\mathfrak{g}$ and defining
     \[
-        J^a_n:= J^a \otimes t^n
+        J^a_n:= J^a \otimes t^n \in \mathfrak{g}[t,t^{-1}],
     \]
-    we can find a PBW basis of $V_k(\mathfrak{g})$ given by letting $v_k = 1 \otimes 1$
-    \[
-        J^{a_1}_{n_1} \dotsb J^{a_m}_{n_m} v_{k}
-    \]
-    where $n_1\leq \dotsb \leq n_m<0$ and if $n_i = n_{i+1}$ then $a_i\leq a_{i+1}$
-\end{frame}
-
-\begin{frame}{Affine Kac-Moody Vertex Algebra}
+        \begin{itemize}
 
 
-    \begin{itemize}
         \item $V = V_k (\mathfrak{g})$
-        \item The vacuum vector is $v_k$
+        \item The vacuum vector is $v_k=1\otimes 1$
         \item The translation operator is $T v_k = 0$, $[T,J^a_n]=-n J^a_{n-1}$
         \item Vertex Operators:
             %   \[
@@ -241,12 +245,33 @@
     \end{itemize}
 \end{frame}
 
+% \begin{frame}{Affine Kac-Moody Vertex Algebra}
+
+
+%     \begin{itemize}
+%         \item $V = V_k (\mathfrak{g})$
+%         \item The vacuum vector is $v_k$
+%         \item The translation operator is $T v_k = 0$, $[T,J^a_n]=-n J^a_{n-1}$
+%         \item Vertex Operators:
+%             %   \[
+%             %       Y(v_k,z) = Id
+%             %   \]
+%               \[
+%                   Y(J^a_{-1} v_k, z) = J^a(z) = \sum_{n \in \Z} J^a_{n}z^{-n-1}
+%               \]
+%             %   \begin{multline}
+%             %       Y(J^{a_1}_{n_1} \dotsb J^{a_{m}}_{n_m}v_k,z) = \\ \frac{1}{(-n_1-1)!\dotsb(-n_m - 1)!} :\partial_z^{n_1-1}J^{a_1}(z) \dotsb \partial_z^{-n_m-1}J^{a_m}(z):
+%             %   \end{multline}
+%         % \item $\mbox{deg}J^{a_1}_{n_1} \dotsb J^{a_m}_{n_m} v_{k} = - \sum_{i=1}^m n_i$
+%     \end{itemize}
+% \end{frame}
+
 
 
 
 \begin{frame}{Kac-Moody Factorization Algebra}
 
-    \begin{block}{Theorem (CG)}
+    \begin{block}{Theorem (Costello--Gwilliam)}
         $U(1)$-invariant holomorphic prefactorization algebras on $\C$ with additional assumptions produce vertex algebras.
     \end{block}
 
@@ -329,9 +354,9 @@
 \end{frame}
 
 \begin{frame}{Coinvariants}
-For $V_{k}(\mathfrak{g})$ there is simple description of coinvariants (Frenkel--Ben-Zvi). Let $(M_i)$ be a collection of $V_{k}(\mathfrak{g})$ modules inserted at $\mathbf{x}=(x_1,\dots,x_n)$.
+For $V_{k}(\mathfrak{g})$ there is simple description of coinvariants (Frenkel--Ben-Zvi). Let $(M_i)$ be a collection of $V_{k}(\mathfrak{g})$ modules inserted at $\mathbf{x}=(x_1,\dots,x_n)$. Define $\mathfrak{g}_{out}(X,\mathbf{x})= \mathfrak{g} \otimes \Gamma(X\setminus \mathbf{x},\mathcal{O}_X)$
 \[
-\rho: \mathfrak{g}_{out}(X,\mathbf{x})= \mathfrak{g} \otimes \Gamma(X\setminus \mathbf{x}) \to \mathfrak{g}((z_1)) \oplus \cdots \oplus \mathfrak{g}((z_n))
+\rho: \mathfrak{g}_{out}(X,\mathbf{x}) \to \mathfrak{g}((z_1)) \oplus \cdots \oplus \mathfrak{g}((z_n))
 \]which gives a map 
 \[
 \rho: \mathfrak{g}_{out} \to U(\hat{\mathfrak{g}}_k) \otimes \cdots \otimes U(\hat{\mathfrak{g}}_k).
@@ -420,7 +445,12 @@ H_{V_{k}(\mathfrak{g})}(X,(x_i),(M_i))_{i=1}^n=H_0(\mathfrak{g}_{out},M_1 \otime
     \item This was believed to be connected with coinvariants in some way.
     \item In order to recover coinvariants from factorization algebras we need to know what it means to insert modules in the language of factorization algebras.
 \end{itemize}
-
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{Screenshot 2024-08-21 at 11.44.52 AM.png}
+        %\caption{This is the caption of the image.}
+        \label{fig:example_image}
+    \end{figure}
 \end{frame}
 
 
@@ -440,7 +470,7 @@ H_{V_{k}(\mathfrak{g})}(X,(x_i),(M_i))_{i=1}^n=H_0(\mathfrak{g}_{out},M_1 \otime
     \]
     Taking the factorization envelope we have a prefactorization algebra
     \[
-        \mathcal{F}_M = \mathrm{Sym}(\hat{\mathcal{G}}   \ltimes \mathcal{M}[1],d_{CE}+\bar{\partial}+d_{M}).
+        \mathcal{F}_M = C_* (\mathcal{F}_M)= \mathrm{Sym}(\hat{\mathcal{G}}   \ltimes \mathcal{M}[1],d_{CE}+\bar{\partial}+d_{M}).
     \]
     We have a $\Z_{\geq 0}$ grading of $\mathcal{F}_M$ by the number of products of elements in $\mathcal{M}$. We will denote the degree 1 piece $\mathcal{F}_M^1$.
 \end{frame}
@@ -481,7 +511,7 @@ H_{V_{k}(\mathfrak{g})}(X,(x_i),(M_i))_{i=1}^n=H_0(\mathfrak{g}_{out},M_1 \otime
         On a compact Riemann surface $X$ the $0$th factorization homology of $\mathcal{F}^1_M$ recovers the space of coinvariants for the affine Kac-Moody vertex algebra through the following isomorphism
 
         \[
-         H_0 ( \mathfrak{g} \otimes \Omega^{0,*}(X) \oplus \C K, \mathcal{M}(X) ) \simeq H_0(\mathfrak{g}_{out}, M).
+         H^0(\mathcal{F}^1_M(X))=H_0 ( \mathfrak{g} \otimes \Omega^{0,*}(X) \oplus \C K, \mathcal{M}(X) ) \simeq H_0(\mathfrak{g}_{out}, M).
           \]
     \end{block}
 
@@ -725,7 +755,7 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
     
     \item A smoothly translation-invariant prefactorization algebra defines an algebra over this colored cooperad as we have maps
     \[
-        \mu(r_1,\dots,r_k|s) \in C^\infty(B^3(r_1,\dots,r_k|s),\mathrm{Hom}(\mathcal{F}_{r_1},\dots ,\mathcal{F}_{r_k}|\mathcal{F}_s)).
+        m[p]\in C^\infty(B^3(r_1,\dots,r_k|s),\mathrm{Hom}(\mathcal{F}_{r_1},\dots ,\mathcal{F}_{r_k}|\mathcal{F}_s)).
     \]
     \end{itemize}
 \end{frame}
@@ -736,7 +766,7 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
     \begin{itemize}
 
         \item The Dolbeaut-de Rham complex on $\C^n \times \R^m$ is denoted $\mathcal{A}^{0;*}(\C^n\times \R^m)$.
-        \item $\mathcal{A}^{0;n}(\C^n\times \R^m)$ is the subspace of $n$-forms generated by $dt_i$ and $d\bar{z}_j$.
+        \item $\mathcal{A}^{0;k}(\C^n\times \R^m)$ is the subspace of $k$-forms generated by $dt_i$ and $d\bar{z}_j$.
         \item The differential is $d'=\bar{\partial}+d_{dR}$.
         \item  $B^3$ has morphisms which are subspaces of $(\R \times \C)^n$ so we can form the cooperad of Dolbeaut-de Rham forms on $B^3$ denoted $\mathcal{A}^{0;*}(B^3)$.
     \end{itemize}
@@ -1027,7 +1057,7 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
 
 \begin{frame}{Locality}
     
-    The composition of vertex operators is given by
+    $m_{z,w,0}(A,B,C) \in H^{0;*}(\mathrm{Conf}_2(\C\times \R \setminus \{0\}),V)$, the composition of vertex operators is given by
     \[
         \mathcal{L}'_z \mathcal{L}'_w m_{z,w,0}(A,B,C)= Y(A,z)Y(B,w)C,
     \]
@@ -1167,7 +1197,7 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
     \]
     The raviolo current factorization algebra is the factorization envelope of $\hat{\mathcal{G}} :=\mathcal{G} \oplus \kappa\C[-2]$, or,
     \[
-        \mathcal{F} := \mathrm{Sym}(\hat{\mathcal{G}}[1] ,d'+d_{CE}).
+        \mathcal{F} := C_* (\hat{\mathcal{G}})=\mathrm{Sym}(\hat{\mathcal{G}}[1] ,d'+d_{CE}).
     \]
     
     
@@ -1184,6 +1214,17 @@ Define $\mu_{i,n}:= T_i \otimes \Omega^n_z$ and $J_{i,n}=T_i \otimes z^n$, for $
     \end{block}
 \end{frame}
 
+\begin{frame}{References}
+    \begin{itemize}
+\item Kevin Costello and Owen Gwilliam, Factorization Algebras in Quantum Field Theory. Volume 1, 2021
+\item Niklas Garner and Brian Williams, Raviolo Vertex Algebras, Selecta Math., 2025
+\item Edward Frenkel and David Ben-Zvi, Vertex Algebras and Algebraic Curves, American Mathematical Society, 2004
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Thank you}
+Thank you to my advisor, committee, and family!
+\end{frame}
 
 
 \end{document}
